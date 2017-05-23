@@ -1,9 +1,9 @@
-﻿(function (undefined) {
+﻿(function () {
 
     angular
-        .module('maiModule', [
+        .module('mainModule', [
         'ui.router',
-        'ngMaterial',
+        'ngMaterial'
 
     ]);
 
@@ -11,7 +11,7 @@
     .module('mainModule')
     .config(configMainModule);
 
-    function confgiMainModule($StateProvider, $urlRouterProvider) {
+    function configMainModule($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/vagas');
 
