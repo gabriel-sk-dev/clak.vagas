@@ -1,7 +1,7 @@
 ﻿(function (undefined) {
 
     angular
-        .module('clakvagas', [
+        .module('maiModule', [
         'ui.router',
         'ngMaterial',
 
@@ -11,12 +11,11 @@
     .module('mainModule')
     .config(configMainModule);
 
-    configMainModule.$inject = ['4stateProvider', '$urlRouteProvider'];
-    function confgiMainModule($StateProvider, $urlRouterProvider, loclaStorageServiceProvider) {
+    function confgiMainModule($StateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/vagas');
 
-        $StateProvider.state('vagas',
+        $stateProvider.state('vagas',
             {
                 url: '/vagas',
                 templateUrl: "app/vagas/main.vagas.view.html",
@@ -24,7 +23,7 @@
                 controllerAs: "vm"
             }
         );
-        $StateProvider.state('vagaDetalhe',
+        $stateProvider.state('vagaDetalhe',
            {
                url: '/vagaDetalhe',
                templateUrl: "app/detalhes/main.detalhes.view.html",
