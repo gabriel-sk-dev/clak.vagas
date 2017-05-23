@@ -1,9 +1,9 @@
-﻿(function (undefined) {
+﻿(function () {
 
     angular
-        .module('clakvagas', [
+        .module('mainModule', [
         'ui.router',
-        'ngMaterial',
+        'ngMaterial'
 
     ]);
 
@@ -11,12 +11,11 @@
     .module('mainModule')
     .config(configMainModule);
 
-    configMainModule.$inject = ['4stateProvider', '$urlRouteProvider'];
-    function confgiMainModule($StateProvider, $urlRouterProvider, loclaStorageServiceProvider) {
+    function configMainModule($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/vagas');
 
-        $StateProvider.state('vagas',
+        $stateProvider.state('vagas',
             {
                 url: '/vagas',
                 templateUrl: "app/vagas/main.vagas.view.html",
@@ -24,7 +23,7 @@
                 controllerAs: "vm"
             }
         );
-        $StateProvider.state('vagaDetalhe',
+        $stateProvider.state('vagaDetalhe',
            {
                url: '/vagaDetalhe',
                templateUrl: "app/detalhes/main.detalhes.view.html",
