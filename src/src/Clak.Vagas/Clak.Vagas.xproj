@@ -6,8 +6,8 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>fd06adca-ad6e-4f7f-9337-627b9e4e4d36</ProjectGuid>
-    <RootNamespace>Clak.Vagas.Web</RootNamespace>
+    <ProjectGuid>8cc5dc25-622b-410e-aa13-3a1f6e09a952</ProjectGuid>
+    <RootNamespace>Clak.Vagas</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>

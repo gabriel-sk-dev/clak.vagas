@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Clak.Vagas.Web
+namespace Clak.Vagas
 {
     public class Startup
     {
@@ -17,7 +17,8 @@ namespace Clak.Vagas.Web
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);           
+
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -26,16 +27,18 @@ namespace Clak.Vagas.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplicationInsightsTelemetry(Configuration);
+            
+
             services.AddMvc();
         }
-
+        
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-            app.UseFileServer();
+            
             app.UseMvc();
+            app.UseFileServer();
         }
     }
 }

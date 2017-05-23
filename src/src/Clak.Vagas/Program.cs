@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 
-namespace Clak.Vagas.Web
+namespace Clak.Vagas
 {
     public class Program
     {
