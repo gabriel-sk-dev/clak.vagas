@@ -11,7 +11,7 @@
     .module('mainModule')
     .config(configMainModule);
 
-    function configMainModule($stateProvider, $urlRouterProvider) {
+    function configMainModule($stateProvider, $urlRouterProvider, localStorageService) {
 
         $urlRouterProvider.otherwise('/vagas');
 
