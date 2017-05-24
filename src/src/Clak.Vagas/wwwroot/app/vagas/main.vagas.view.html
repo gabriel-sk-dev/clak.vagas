@@ -1,1 +1,22 @@
-﻿<h1> apoksdpoadpo pokasdkp </h1>
+﻿<div layout-padding>
+    <md-toolbar class="md-theme-light md-whiteframe-5dp">
+        <h2 class="md-toolbar-tools">
+            <span>Vagas</span>
+        </h2>
+    </md-toolbar>
+
+    <md-content class="md-whiteframe-3dp">
+        <md-list>
+            <md-list-item class="md-3-line" ng-repeat="vagas in vm.vagas">
+                <div class="md-list-item-text">
+                    <h2>{{vagas.titulo}}</h2>
+                    <p style="padding: 5px 30px 10px 4px">{{vagas.detalhes}}</p>
+                </div>
+                <md-button class="md-secondary" ng-click="vm.abrirVaga(vagas.id)">
+                    Detalhes
+                </md-button>
+                <md-divider></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</div>
