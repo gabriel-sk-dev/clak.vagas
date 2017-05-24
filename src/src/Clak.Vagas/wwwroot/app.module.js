@@ -3,7 +3,8 @@
     angular
         .module('mainModule', [
         'ui.router',
-        'ngMaterial'
+        'ngMaterial',
+        'LocalStorageModule'
 
     ]);
 
@@ -11,7 +12,7 @@
     .module('mainModule')
     .config(configMainModule);
 
-    function configMainModule($stateProvider, $urlRouterProvider, localStorageService) {
+    function configMainModule($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/vagas');
 

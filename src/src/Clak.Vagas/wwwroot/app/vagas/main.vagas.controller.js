@@ -7,7 +7,9 @@
         var vm = this;
         vm.vagas = [];
         vm.abrirVaga = abrirVaga;
+
         ativar();
+
         function ativar() {
             $http
                 .get("http://localhost:5000/api/Vagas")
