@@ -14,7 +14,7 @@ namespace Clak.Vagas.Controllers
     public class VagasController : Controller
     {
 
-        private string _stringConnection = @"Data Source=.\SQLEXPRESS;User Id=da;Password=sa; Initial Catalog=clakVagas";
+        private string _stringConnection = @"Data Source=.\SQLEXPRESS;User Id=sa;Password=sa; Initial Catalog=clakVagas";
 
 
         // GET: api/values

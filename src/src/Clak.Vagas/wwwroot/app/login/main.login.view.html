@@ -1,0 +1,31 @@
+﻿
+
+
+
+
+<md-card style=" height: 460px; width: 400px; margin: 60px auto ;" class="md-whiteframe-z3">
+    <md-card-content>
+        <div layout="column">
+            <div style="margin-left: 125px; margin-top: 30px; margin-bottom: 120px;">
+                <md-icon ng-style="{'font-size': it.size + '150px'}">account_circle</md-icon>
+            </div>
+            <md-input-container>
+                <label>Usuário</label>
+                <input ng-model="vm.user.userName" type="text">
+            </md-input-container>
+            <md-input-container>
+                <label>Senha</label>
+                <input ng-model="vm.user.senha" type="text">
+            </md-input-container>
+        </div>
+        <label ng-style="{'font-size': it.size + '13.5px'}">{{vm.error}}</label>
+        <md-icon ng-style="{'font-size': it.size + '50px'}"
+                 style="margin-left: 175px;"
+                 ng-click="vm.validateAccount()">done</md-icon>
+        <div style="margin: 0 auto;">
+            <p ng-style="{'font-size': it.size + '13.5px'}"
+               style="padding-top: 20px;"
+               ng-click="vm.goToCadastrar()" class="ng-binding">Não sou cadastrado</p>
+        </div>
+    </md-card-content>
+</md-card>
