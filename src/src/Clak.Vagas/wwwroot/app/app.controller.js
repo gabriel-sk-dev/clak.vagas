@@ -78,7 +78,7 @@
                         }
                     },
                     function (error) {
-                        vm.mensagem = "Nome do usuário ou senha inválido!"
+                        vm.mensagem = "Nome do usuário ou senha errado!"
                         vm.exibeErro = true;
                     }
                 );
