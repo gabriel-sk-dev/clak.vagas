@@ -1,10 +1,10 @@
 ﻿
 (function () {
     angular
-    .module('mainModule')
-    .controller('mainController', mainController);
+    .module('appModule')
+    .controller('appController', mainController);
 
-    function mainController($mdSidenav, $http, $state, localStorageService) {
+    function appController($mdSidenav, $http, $state, localStorageService) {
         var vm = this;
 
         vm.curriculo = {
