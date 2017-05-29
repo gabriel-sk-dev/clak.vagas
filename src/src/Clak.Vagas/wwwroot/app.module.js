@@ -32,14 +32,22 @@
                controllerAs: "vm"
            }
        );
-       $stateProvider.state('login',
-           {
-               url: '/login',
-               templateUrl: "app/login/main.login.view.html",
-               controller: "mainLoginController",
-               controllerAs: "vm"
-           }
-      );
+        $stateProvider.state('login',
+            {
+                url: '/login',
+                templateUrl: "app/login/main.login.view.html",
+                controller: "mainLoginController",
+                controllerAs: "vm"
+            }
+       );
+        $stateProvider.state('home',
+            {
+                url: '/home',
+                templateUrl: "app/home/main.home.view.html",
+                controlle: "mainHomeController",
+                controllerAs: "vm"
+             }   
+        );
     }
 })();
 
