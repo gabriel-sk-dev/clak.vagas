@@ -32,6 +32,14 @@
                controllerAs: "vm"
            }
        );
+        $stateProvider.state('login',
+         {
+             url: '/login',
+             templateUrl: "app/login/main.login.view.html",
+             controller: "mainLoginController",
+             controllerAs: "vm"
+         }
+     );
     }
 })();
 
