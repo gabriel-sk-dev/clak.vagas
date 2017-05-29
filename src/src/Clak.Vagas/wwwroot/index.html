@@ -10,101 +10,101 @@
 
 <body>
 
-    <div>
-        <md-toolbar class="md-primary">
-            <div class="md-toolbar-tools md-whiteframe-5dp">
-                <md-button class="md-icon-button" ng-click="vm.openMenu()" aria-label="Menu">
-                    <md-icon>menu</md-icon>
-                </md-button>
-                <span flex></span>
-                <md-button class="md-icon-button" ng-click="vm.openLogin()" aria-label="Login" layout="row" layout-align="end center">
-                    <md-icon>person</md-icon>
-                </md-button>
+        <div>
+            <md-toolbar class="md-primary">
+                <div class="md-toolbar-tools md-whiteframe-5dp">
+                    <md-button class="md-icon-button" ng-click="vm.openMenu()" aria-label="Menu">
+                        <md-icon>menu</md-icon>
+                    </md-button>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="vm.openLogin()" aria-label="Login" layout="row" layout-align="end center">
+                        <md-icon>person</md-icon>
+                    </md-button>
 
-            </div>
-        </md-toolbar>
-    </div>
-
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-open="false" ng-cloak style="position:fixed">
-        <md-content role="navigation">
-            <md-list>
-                <md-list-item ng-click="vm.abrirHome('home');">
-                    <a ui-sref="home">
-                        {{vm.title}}
-                        <md-icon>store</md-icon>
-                        <p class="md-body-2 fontMenu">Home</p>
-                        <md-icon>chevron-right</md-icon>
-                </md-list-item>
-                <md-list-item ng-click="vm.abrirVagas('vagas');">
-                    <md-icon>contacts</md-icon>
-                    <p class="md-body-2 fontMenu">Vagas</p>
-                    <md-icon>chevron-right</md-icon>
-                </md-list-item>
-            </md-list>
-        </md-content>
-    </md-sidenav>
-
-    <md-sidenav class="md-sidenav-right" md-component-id="right" md-is-open="false" ng-cloak style="position:fixed">
-        <md-content role="navigation">
-            <md-list>
-
-                <div ng-show="vm.estouLogado() === null">
-
-
-                    <md-list-item>
-                        <md-icon>account_circle</md-icon>
-                        <md-input-container>
-                            <label>Login: </label>
-                            <input ng-model="vm.user.login">
-                        </md-input-container>
-                        <span flex></span>
-                    </md-list-item>
-
-                    <md-list-item>
-                        <md-icon>https</md-icon>
-                        <md-input-container>
-                            <label>Senha: </label>
-                            <input ng-model="vm.user.senha">
-                        </md-input-container>
-                        <span flex></span>
-                    </md-list-item>
-                    <md-list-item>
-                        <div layout-align="center" style="margin: 0; padding: 0;">
-                            <md-button class="md-raised" ng-click="vm.login()">Logar</md-button>
-                        </div>
-                        <div ng-show="vm.exibeErro">
-                            {{vm.mensagem}}
-                        </div>
-                    </md-list-item>
-
-                    <md-list-item>
-                        <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
-                            <md-button class="md-raised" ng-click="vm.abrirCurriculo()">Criar Nova Conta</md-button>
-                        </div>
-                        <span flex></span>
-                    </md-list-item>
                 </div>
+            </md-toolbar>
+        </div>
 
-                <md-list-item ng-show="vm.estouLogado() !== null">
-                    <md-icon>person_add</md-icon>
-                    <p class="md-body-2 fontMenu">USUARIO</p>
-                    <span flex></span>
-                    <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
-                        <md-button class="md-raised" ng-click="vm.logout()">LOGOUT</md-button>
-                    </div>
-                </md-list-item>
-                <md-list-item ng-show="vm.estouLogado() !== null">
-                    <md-icon>folder</md-icon>
-                    <p class="md-body-2 fontMenu">CURRICULO</p>
-                    <span flex></span>
-                    <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
-                        <md-button class="md-raised" ng-click="vm.abrirCurriculo()">ABRIR</md-button>
-                    </div>
-                </md-list-item>
+        <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-open="false" ng-cloak style="position:fixed">
+            <md-content role="navigation">
+                <md-list>
+                    <md-list-item ng-click="vm.abrirHome('home');">
+                        <a ui-sref="home">
+                            {{vm.title}}
+                            <md-icon>store</md-icon>
+                            <p class="md-body-2 fontMenu">Home</p>
+                            <md-icon>chevron-right</md-icon>
+                    </md-list-item>
+                    <md-list-item ng-click="vm.abrirVagas('vagas');">
+                        <md-icon>contacts</md-icon>
+                        <p class="md-body-2 fontMenu">Vagas</p>
+                        <md-icon>chevron-right</md-icon>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </md-sidenav>
 
-            </md-list>
-        </md-content>
-    </md-sidenav>
+        <md-sidenav class="md-sidenav-right" md-component-id="right" md-is-open="false" ng-cloak style="position:fixed">
+            <md-content role="navigation">
+                <md-list>
+
+                    <div ng-show="vm.estouLogado() === null">
+
+
+                        <md-list-item>
+                            <md-icon>account_circle</md-icon>
+                            <md-input-container>
+                                <label>Login: </label>
+                                <input ng-model="vm.user.login">
+                            </md-input-container>
+                            <span flex></span>
+                        </md-list-item>
+
+                        <md-list-item>
+                            <md-icon>https</md-icon>
+                            <md-input-container>
+                                <label>Senha: </label>
+                                <input ng-model="vm.user.senha">
+                            </md-input-container>
+                            <span flex></span>
+                        </md-list-item>
+                        <md-list-item>
+                            <div layout-align="center" style="margin: 0; padding: 0;">
+                                <md-button class="md-raised" ng-click="vm.login()">Logar</md-button>
+                            </div>
+                            <div ng-show="vm.exibeErro">
+                                {{vm.mensagem}}
+                            </div>
+                        </md-list-item>
+                        
+                        <md-list-item>
+                            <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
+                                <md-button class="md-raised" ng-click="vm.abrirCurriculo()">Criar Nova Conta</md-button>
+                            </div>
+                            <span flex></span>
+                        </md-list-item>
+                    </div>
+
+                    <md-list-item ng-show="vm.estouLogado() !== null">
+                        <md-icon>person_add</md-icon>
+                        <p class="md-body-2 fontMenu">USUARIO</p>
+                        <span flex></span>
+                        <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
+                            <md-button class="md-raised" ng-click="vm.logout()">LOGOUT</md-button>
+                        </div>
+                    </md-list-item>
+                    <md-list-item ng-show="vm.estouLogado() !== null">
+                        <md-icon>folder</md-icon>
+                        <p class="md-body-2 fontMenu">CURRICULO</p>
+                        <span flex></span>
+                        <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
+                            <md-button class="md-raised" ng-click="vm.abrirCurriculo()">ABRIR</md-button>
+                        </div>
+                    </md-list-item>
+
+                </md-list>
+            </md-content>
+        </md-sidenav>
 
     <div style="margin: 0 1.5%;"><div ui-view></div></div>
 
@@ -122,5 +122,6 @@
     <script src="app/vagas/main.vagas.controller.js"></script>
     <script src="app/detalhes/main.detalhes.controller.js"></script>
     <script src="app/login/main.login.controller.js"></script>
+
 </body>
 </html>
