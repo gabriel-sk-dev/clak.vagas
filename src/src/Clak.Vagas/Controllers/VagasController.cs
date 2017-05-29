@@ -13,7 +13,6 @@ namespace Clak.Vagas.Controllers
     [Route("api/[controller]")]
     public class VagasController : Controller
     {
-
         private string _stringConnection = @"Data Source=.\SQLEXPRESS;User Id=sa;Password=sa; Initial Catalog=clakVagas";
 
 
@@ -44,17 +43,37 @@ namespace Clak.Vagas.Controllers
                 return Ok(resultado);
             }
         }
+        [HttpPost]
+        [Route("inscricao")]
+        public void Post([FromBody]Vagacadastrarse inscricao)
+        {
+            using (var conexao = new SqlConnection(@"Data Source=PC-18\SQLEXPRESS;User Id=sa;Password=sa;Initial Catalog=clakVagas"))
+            {
+                var sql = @"INSERT INTO curriculos_vagas (id_curriculos, id_vagas) 
+                            VALUES (@id_curriculos, @id_vagas)";
+                conexao.Execute(sql, new
+                {
+                    id_curriculos = inscricao.id_curriculos,
+                    id_vagas = inscricao.id_vagas
+                });
+            }
+        }
+
+        [HttpGet()]
+        [Route("admin")]
+        public IActionResult GetAdminTabela()
+        {
+            using (var conexao = new SqlConnection(_stringConnection))
+            {
+                var sql = "SELECT vagas.id, vagas.titulo, count(curriculos_vagas.id_vagas) as quantidade FROM vagas left join curriculos_vagas on (vagas.id = curriculos_vagas.id_vagas) group by vagas.id, vagas.titulo";
+                var resultado = conexao.Query(sql)
+                    .Select(vaga => new VagasTabelaView(vaga.id, vaga.titulo, vaga.quantidade));
+
+                return Ok(resultado);
+            }
+        }
     }
 }
-
-// [HttpGet()]
-// [Route("admin")]
-// 
-// [HttpPost]
-// public void Post([FromBody]string value)
-// {
-// 
-// }
 
 public class VagasListView
 {
@@ -89,5 +108,25 @@ public class VagaDetalhadaView
     public string Salario { get; set; }
     public string CargaHoraria { get; set; }
     public string TipoContratacao { get; set; }
+}
+
+public class Vagacadastrarse
+{
+    public int id_curriculos { get; set; }
+    public int id_vagas { get; set; }
+}
+
+public class VagasTabelaView
+{
+    public VagasTabelaView(int id, string titulo, int quantidade)
+    {
+        Id = id;
+        Titulo = titulo;
+        Quantidade = quantidade;
+    }
+
+    public int Id { get; set; }
+    public string Titulo { get; set; }
+    public int Quantidade { get; set; }
 }
 
