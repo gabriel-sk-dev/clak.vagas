@@ -19,67 +19,63 @@
 
         <div layout-gt-sm="row">
             <md-input-container class="md-block" flex-gt-sm>
-                <label>Nome</label>
+                <label>Nome completo</label>
                 <input ng-model="vm.curriculo.nome">
-            </md-input-container>
-
-            <md-input-container class="md-block" flex-gt-sm>
-                <label>Sobrenome</label>
-                <input ng-model="vm.curriculo.sobrenome">
             </md-input-container>
         </div>
 
         <div layout="row" layout-align="space-around center">
             <md-input-container flex-gt-sm>
-                <label>Nascimento</label>
-                <md-datepicker ng-model="vm.curriculo.nascimento"></md-datepicker>
-            </md-input-container>
-
-            <md-input-container flex-gt-sm>
                 <label>Telefone</label>
                 <input ng-model="vm.curriculo.telefone" type="tel">
             </md-input-container>
-        </div>
 
-        <div>
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Email</label>
                 <input ng-model="vm.curriculo.email" type="email">
             </md-input-container>
+
+            <md-input-container flex-gt-sm>
+                <label>Nascimento</label>
+                <md-datepicker ng-model="vm.curriculo.nascimento"></md-datepicker>
+            </md-input-container>
         </div>
+
 
         <div layout="row">
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Endereço</label>
                 <input ng-model="vm.curriculo.endereco">
             </md-input-container>
+        </div>
 
+
+        <div layout="row">
             <md-input-container class="md-block" flex-gt-sm>
-                <label>Cidade</label>
-                <input ng-model="vm.curriculo.cidade">
+                <label>CPF</label>
+                <input ng-model="vm.curriculo.Cpf">
             </md-input-container>
         </div>
-    </md-content>
-    <md-content layout-padding>
-        <div>
-            <div layout="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Última experiência profissional</label>
-                    <input ng-model="vm.curriculo.experiencia">
-                </md-input-container>
 
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Cargo</label>
-                    <input ng-model="vm.curriculo.cargo">
-                </md-input-container>
 
-            </div>
+        <div layout="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Formação</label>
+                <input ng-model="vm.curriculo.Formacao">
+            </md-input-container>
+
         </div>
-    </md-content>
-
-    <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
-        <md-button class="md-raised" ng-click="vm.enviarCurriculo()">Cadastrar</md-button>
-    </div>
 
 
+        <div layout="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Experiência</label>
+                <input ng-model="vm.curriculo.Experiencia">
+            </md-input-container>
+        </div>
+
+
+        <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
+            <md-button class="md-raised" ng-click="vm.enviarCurriculo()">Cadastrar</md-button>
+        </div>
 </div>
