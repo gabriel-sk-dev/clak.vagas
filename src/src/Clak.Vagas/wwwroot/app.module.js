@@ -44,10 +44,18 @@
             {
                 url: '/home',
                 templateUrl: "app/home/main.home.view.html",
-                controlle: "mainHomeController",
+                controller: "mainHomeController",
                 controllerAs: "vm"
              }   
-        );
+      );
+        $stateProvider.state('admin',
+            {
+                url: '/admin',
+                templateUrl: "app/admin/main.admin.view.html",
+                controller: "mainAdminController",
+                controllerAs: "vm"
+            }
+      );
     }
 })();
 

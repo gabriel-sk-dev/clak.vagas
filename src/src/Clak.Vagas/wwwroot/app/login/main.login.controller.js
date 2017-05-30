@@ -50,7 +50,7 @@
         }
 
         function goToCadastrar() {
-            $state.go('cadastrar')
+            $state.go('vagas')
         }
 
     }

@@ -4,7 +4,7 @@
     .module('mainModule')
     .controller('appController', appController);
 
-    function appController($mdSidenav, $http, $state, localStorageService) {
+    function appController($mdSidenav, $http, $state, localStorageService, $rootScope) {
         var vm = this;
 
         vm.curriculo = {
@@ -28,14 +28,35 @@
         vm.exibeLogin = true;
         vm.logout = logout;
         vm.loginCurriculo = false;
+        vm.exibeDadosUsuario = exibeDadosUsuario;
+        vm.ativar = ativar;
+        vm.nomeUsuario = "Usuario";
 
+        ativar();
+        function ativar() {
+            $rootScope.$on('loginrealizado', function (event, data) {
+                console.log(data);
+            });
+        }
+
+        function exibeDadosUsuario() {
+            vm.exibeLogin = true;
+            var id = localStorageService.get('login');
+            console.log(id);
+            if (id != null) {
+                vm.exibeLogin = false;
+            }
+            return vm.exibeLogin;
+        }
 
         function openMenu() {
             $mdSidenav('left').toggle();
+            console.log('Teste');
         }
 
         function openLogin() {
             $mdSidenav('right').toggle();
+            console.log('Teste 1');
         }
 
         function abreCadastro() {
@@ -56,7 +77,7 @@
         }
 
         function estouLogado() {
-            return localStorageService.get('loginId');
+            return localStorageService.get('login');
         }
 
         function login() {
@@ -69,7 +90,7 @@
                         var usuario = result.data;
 
                         if (usuario.senha === vm.user.senha) {
-                            localStorageService.set('loginId', usuario.id);
+                            localStorageService.set('login', usuario.id);
                             localStorageService.set('tipo_user', usuario.tipo_user);
                         }
                         else {
@@ -86,8 +107,9 @@
         }
 
         function logout() {
-            localStorageService.set('loginId', null);
+            localStorageService.set('login', null);
             localStorageService.set('tipo_user', null);
+
             $state.go('home');
         }
 
