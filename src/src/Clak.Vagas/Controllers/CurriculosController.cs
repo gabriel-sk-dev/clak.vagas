@@ -16,11 +16,18 @@ namespace Clak.Vagas.Controllers
         private string _stringConnection = @"Data Source=.\SQLEXPRESS;User Id=sa;Password=sa; Initial Catalog=clakVagas";
 
         [HttpPost]
-        public void Post([FromBody]CurriculoInput curriculo)
+        public IActionResult Post([FromBody]CurriculoInput curriculo)
         {
+
             using (var conexao = new SqlConnection(_stringConnection))
             {
-                var sql = @" INSERT INTO curriculos (nome, dataNascimento, endereço, genero,telefone, email, cpf, formacao, experiencia)
+                var sql = @"SELECT username FROM usuario WHERE userName = @userName";
+                var resultado = conexao.Query(sql, new { userName = curriculo.UserName })                    
+                    .FirstOrDefault();
+                if (resultado != null)
+                    return BadRequest("UserName já cadastrado!");
+
+                sql = @" INSERT INTO curriculos (nome, dataNascimento, endereço, genero,telefone, email, cpf, formacao, experiencia)
                            values (@nome, @dataNascimento, @endereço, @genero,@telefone, @email, @cpf, @formacao, @experiencia )";
                 conexao.Execute(sql, new
                 {
@@ -35,13 +42,15 @@ namespace Clak.Vagas.Controllers
                     experiencia = curriculo.Experiencia,
                 });
                 sql = @" INSERT INTO usuario (userName,senha,tipo)
-                        values (@userName,@senha,@tipo)";
+                        values (@userName,@senha,'user')";
                 conexao.Execute(sql, new
                 {
                     userName = curriculo.UserName,
                     senha = curriculo.Senha
                 });
             }
+
+            return Ok();
         }
     }
 
