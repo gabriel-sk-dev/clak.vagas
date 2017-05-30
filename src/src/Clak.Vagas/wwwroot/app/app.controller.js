@@ -2,7 +2,7 @@
 (function () {
     angular
     .module('appModule')
-    .controller('appController', mainController);
+    .controller('appController', appController);
 
     function appController($mdSidenav, $http, $state, localStorageService) {
         var vm = this;
