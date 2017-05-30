@@ -9,17 +9,18 @@
         vm.enviarCurriculo = enviarCurriculo;
 
         vm.curriculo = {
-            "login_user": "",
+           
+            "userName": "",
             "senha": "",
             "nome": "",
-            "sobrenome": "",
-            "nascimento": "",
-            "telefone": "",
-            "email": "",
+            "dataNascimento": "",
             "endereco": "",
-            "cidade": "",
-            "experiencia": "",
-            "cargo": ""
+            "genero": "",
+            "telefone": "",
+            "email": "",      
+            "cpf": "",
+            "formacao":"",
+            "experiencia": ""
         };
 
         function enviarCurriculo() {

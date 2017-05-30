@@ -20,8 +20,8 @@ namespace Clak.Vagas.Controllers
         {
             using (var conexao = new SqlConnection(_stringConnection))
             {
-                var sql = @" INSERT INTO curriculos (nome, dataNascimento, endereço, genero,telefone, email, cpf, formacao, experiencia)
-                           values (@nome, @dataNascimento, @endereço, @genero,@telefone, @email, @cpf, @formacao, @experiencia )";
+                var sql = @" INSERT INTO curriculos (nome, dataNascimento, endereco, genero,telefone, email, cpf, formacao, experiencia)
+                           values (@nome, @dataNascimento, @endereco, @genero,@telefone, @email, @cpf, @formacao, @experiencia )";
                 conexao.Execute(sql, new
                 {
                     nome = curriculo.Nome,
@@ -33,6 +33,7 @@ namespace Clak.Vagas.Controllers
                     cpf = curriculo.Cpf,
                     formacao = curriculo.Formacao,
                     experiencia = curriculo.Experiencia,
+
                 });
                 sql = @" INSERT INTO usuario (userName,senha,tipo)
                         values (@userName,@senha,@tipo)";
