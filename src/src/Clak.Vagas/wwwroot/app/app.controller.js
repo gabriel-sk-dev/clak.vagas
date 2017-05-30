@@ -42,7 +42,6 @@
         function exibeDadosUsuario() {
             vm.exibeLogin = true;
             var id = localStorageService.get('login');
-            console.log(id);
             if (id != null) {
                 vm.exibeLogin = false;
             }
@@ -91,7 +90,7 @@
 
                         if (usuario.senha === vm.user.senha) {
                             localStorageService.set('login', usuario.id);
-                            localStorageService.set('tipo_user', usuario.tipo_user);
+                            localStorageService.set('tipo', usuario.tipo);
                         }
                         else {
                             vm.mensagem = "Senha inválida!"
@@ -108,7 +107,7 @@
 
         function logout() {
             localStorageService.set('login', null);
-            localStorageService.set('tipo_user', null);
+            localStorageService.set('tipo', null);
 
             $state.go('home');
         }

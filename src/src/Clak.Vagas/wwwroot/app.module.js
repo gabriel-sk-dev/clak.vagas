@@ -56,6 +56,14 @@
                 controllerAs: "vm"
             }
       );
+        $stateProvider.state('curriculo',
+       {
+           url: '/curriculo',
+           templateUrl: "app/curriculo/main.curriculo.view.html",
+           controller: "mainCurriculoController",
+           controllerAs: "vm"
+       }
+ );
     }
 })();
 
