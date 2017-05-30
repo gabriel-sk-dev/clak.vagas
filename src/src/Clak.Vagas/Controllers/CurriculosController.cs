@@ -21,14 +21,14 @@ namespace Clak.Vagas.Controllers
 
             using (var conexao = new SqlConnection(_stringConnection))
             {
-                var sql = @"SELECT username FROM usuario WHERE userName = @userName";
+                var sql = @"SELECT userName FROM usuarios WHERE userName = @userName";
                 var resultado = conexao.Query(sql, new { userName = curriculo.UserName })                    
                     .FirstOrDefault();
                 if (resultado != null)
                     return BadRequest("UserName já cadastrado!");
 
-                sql = @" INSERT INTO curriculos (nome, dataNascimento, endereço, genero,telefone, email, cpf, formacao, experiencia)
-                           values (@nome, @dataNascimento, @endereço, @genero,@telefone, @email, @cpf, @formacao, @experiencia )";
+                sql = @" INSERT INTO curriculos (nome, dataNascimento, endereco, genero,telefone, email, cpf, formacao, experiencia)
+                           values (@nome, @dataNascimento, @endereco, @genero,@telefone, @email, @cpf, @formacao, @experiencia )";
                 conexao.Execute(sql, new
                 {
                     nome = curriculo.Nome,
@@ -41,7 +41,7 @@ namespace Clak.Vagas.Controllers
                     formacao = curriculo.Formacao,
                     experiencia = curriculo.Experiencia,
                 });
-                sql = @" INSERT INTO usuario (userName,senha,tipo)
+                sql = @" INSERT INTO usuarios (userName,senha,tipo)
                         values (@userName,@senha,'user')";
                 conexao.Execute(sql, new
                 {
