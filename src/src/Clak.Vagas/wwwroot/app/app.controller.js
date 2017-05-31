@@ -12,7 +12,7 @@
             "sobrenome": ""
         };
 
-        vm.title = "PDM";
+        vm.title = "Clak Vagas";
         vm.openMenu = openMenu;
         vm.openLogin = openLogin;
         vm.goToState = goToState;
@@ -31,6 +31,7 @@
         vm.exibeDadosUsuario = exibeDadosUsuario;
         vm.ativar = ativar;
         vm.nomeUsuario = "Usuario";
+
 
         ativar();
         function ativar() {

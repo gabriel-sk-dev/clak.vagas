@@ -79,7 +79,7 @@ public class VagasListView
 {
     public VagasListView(int id, string titulo, string detalhes)
     {   
-        Id = Id;
+        Id = id;
         Titulo = titulo;
         Detalhes = detalhes;
     }

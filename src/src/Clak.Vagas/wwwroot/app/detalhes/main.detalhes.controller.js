@@ -6,14 +6,7 @@
     function mainDetalhesController($state, $http, $stateParams, localStorageService, $mdSidenav) {
         var vm = this;
         vm.abrirCurriculo = abrirCurriculo;
-        vm.vaga = {
-            "id": "",
-            "titulo": "",
-            "detalhes": "",
-            "salario": "",
-            "carga_horaria": "",
-            "tipo_contratacao": ""
-        };
+        vm.vaga = {};
         vm.registro = {
             "id_user": "",
             "id_vaga": ""

@@ -34,11 +34,22 @@
                 <label>Email</label>
                 <input ng-model="vm.curriculo.email" type="email">
             </md-input-container>
+          </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container flex-gt-sm>
+                <label>Genero</label>
+                <md-select ng-model="vm.curriculo.Genero">
+                    <md-option value="M">Masculino</md-option>
+                    <md-option value="F">Feminino</md-option>
+                </md-select>
+            </md-input-container>
 
             <md-input-container flex-gt-sm>
                 <label>Nascimento</label>
                 <md-datepicker ng-model="vm.curriculo.dataNascimento"></md-datepicker>
             </md-input-container>
+
         </div>
 
 

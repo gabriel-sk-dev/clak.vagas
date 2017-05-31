@@ -21,7 +21,7 @@
                 );
 
         }
-        function abrirVaga(id) {
+        function abrirVaga(id) {            
             $state.go('vagaDetalhe', { id: id });
         }
     }

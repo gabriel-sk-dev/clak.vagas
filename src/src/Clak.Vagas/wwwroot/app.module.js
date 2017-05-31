@@ -26,7 +26,7 @@
         );
         $stateProvider.state('vagaDetalhe',
            {
-               url: '/vagaDetalhe',
+               url: '/vagaDetalhe/{id}',
                templateUrl: "app/detalhes/main.detalhes.view.html",
                controller: "mainDetalhesController",
                controllerAs: "vm"
