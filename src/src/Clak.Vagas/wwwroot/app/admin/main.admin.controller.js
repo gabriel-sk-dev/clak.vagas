@@ -41,7 +41,7 @@
                 )
         }
         function VerCandidato() {
-            $state.go('curriculos')
+            $state.go('listaCandidatos')
         }
     }
 

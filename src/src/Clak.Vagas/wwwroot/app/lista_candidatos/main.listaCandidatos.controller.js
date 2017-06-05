@@ -1,9 +1,9 @@
 ﻿(function () {
     angular
         .module('mainModule')
-        .controller('mainListaCandidatoController', mainListaCandidatoController);
+        .controller('mainlistaCandidatosController', mainlistaCandidatosController);
 
-    function mainListaCandidatoController() {
+    function mainlistaCandidatosController() {
 
     }
 
