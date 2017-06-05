@@ -8,8 +8,8 @@
         vm.abrirCurriculo = abrirCurriculo;
         vm.vaga = {};
         vm.registro = {
-            "id_user": "",
-            "id_vaga": ""
+            "id_curriculos": "",
+            "id_vagas": ""
         }
         ativar();
         function ativar() {
@@ -24,12 +24,12 @@
         }
         function abrirCurriculo() {
             var loginId = localStorageService.get('loginId');
-            console.log(loginId);
+            //console.log(loginId);
             if (loginId === null)
                 $mdSidenav('right').toggle();
             else {
-                vm.registro.id_user = loginId;
-                vm.registro.id_vaga = $stateParams.id;
+                vm.registro.id_curriculos = loginId;
+                vm.registro.id_vagas = $stateParams.id;
                 $http
                     .post("http://localhost:5000/api/Vagas/inscricao", vm.registro)
                     .then(
@@ -39,7 +39,7 @@
                             $state.go('vagas');
                         },
                         function (error) {
-                            console.log(error);
+                            //console.log(error);
                             alert("Algo inesperado aconteceu. Tente novamente!");
                         }
                     );

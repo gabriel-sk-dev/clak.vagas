@@ -56,6 +56,14 @@
                 controllerAs: "vm"
             }
       );
+        $stateProvider.state('listaCandidatos',
+          {
+              url: '/listaCandidatos',
+              templateUrl: "app/lista_candidatos/main.listaCandidatos.view.html",
+              controller: "mainlistaCandidatosController",
+              controllerAs: "vm"
+          }
+    );
         $stateProvider.state('curriculo',
        {
            url: '/curriculo',
