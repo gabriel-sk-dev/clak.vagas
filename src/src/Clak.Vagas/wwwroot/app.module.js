@@ -60,7 +60,7 @@
           {
               url: '/listaCandidatos',
               templateUrl: "app/listaCandidatos/main.listaCandidatos.view.html",
-              controller: "mainlistaCandidatosController",
+              controller: "mainListaCandidatoController",
               controllerAs: "vm"
           }
     );
