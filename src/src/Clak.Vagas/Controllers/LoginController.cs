@@ -13,7 +13,7 @@ namespace Clak.Vagas.Controllers
     [Route("api/[controller]")]
     public class LoginController : Controller
     {
-        private string _stringConnection = @"Data Source=.\SQLEXPRESS;User Id=sa;Password=sa; Initial Catalog=clakVagas";
+        private string _stringConnection = @"Data Source=ev5toyh7r2.database.windows.net,1433;User Id=clak;Password=vagas+2017; Initial Catalog=clakVagas";
 
 
         // GET: api/values
