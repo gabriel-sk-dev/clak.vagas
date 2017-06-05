@@ -27,7 +27,7 @@
                                 $state.go('admin');
                                 return;
                             } else {
-                                console.log($stateParams.vagaId);
+                                //console.log($stateParams.vagaId);
                                 if ($stateParams.vagaId > 0) {
                                     return $state.go('vagaDetalhe', { vagaId: $stateParams.vagaId });
                                 }
@@ -39,10 +39,10 @@
 
                     function (error) {
 
-                        console.log("deu merda");
+                        //console.log("deu merda");
                     }
                 );
-            console.log('depois de chamar o http;');
+            //console.log('depois de chamar o http;');
         }
 
         function activate() {

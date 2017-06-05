@@ -59,8 +59,8 @@
         $stateProvider.state('listaCandidatos',
           {
               url: '/listaCandidatos',
-              templateUrl: "app/listaCandidatos/main.listaCandidatos.view.html",
-              controller: "mainListaCandidatoController",
+              templateUrl: "app/lista_candidatos/main.listaCandidatos.view.html",
+              controller: "mainlistaCandidatosController",
               controllerAs: "vm"
           }
     );

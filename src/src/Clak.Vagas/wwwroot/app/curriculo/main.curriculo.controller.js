@@ -35,7 +35,7 @@
                    }
                );
 
-            console.log(vm.curriculo);
+            //console.log(vm.curriculo);
         }
     }
 })();

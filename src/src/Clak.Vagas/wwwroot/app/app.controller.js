@@ -4,7 +4,7 @@
     .module('mainModule')
     .controller('appController', appController);
 
-    function appController($mdSidenav, $http, $state, localStorageService, $rootScope) {
+    function appController($mdSidenav, $http, $state, localStorageService, $rootScope,$stateParams) {
         var vm = this;
 
         vm.curriculo = {
@@ -37,7 +37,7 @@
         ativar();
         function ativar() {
             $rootScope.$on('loginrealizado', function (event, data) {
-                console.log(data);
+                //console.log(data);
             });
         }
       
@@ -52,12 +52,12 @@
 
         function openMenu() {
             $mdSidenav('left').toggle();
-            console.log('Teste');
+            //console.log('Teste');
         }
 
         function openLogin() {
             $mdSidenav('right').toggle();
-            console.log('Teste 1');
+            //console.log('Teste 1');
         }
 
         function abreCadastro() {
@@ -90,17 +90,26 @@
             $http
                 .get("http://localhost:5000/api/Login/" + vm.user.login)
                 .then(
-                    function (result) {
-                        console.log(result);
-                        var usuario = result.data;
+                    function (result) {                        
+                        var userBd = result.data;
+                        if (userBd.senha === vm.user.senha) {
+                            localStorageService.set('login', userBd.id);
+                            localStorageService.set('tipo', userBd.tipo);
 
-                        if (usuario.senha === vm.user.senha) {
-                            localStorageService.set('login', usuario.id);
-                            localStorageService.set('tipo', usuario.tipo);
-                        }
-                        else {
-                            vm.mensagem = "Senha inválida!"
-                            vm.exibeErro = true;
+                            console.log('usuario id', userBd.id);
+
+                            if (userBd.tipo === "adm") {
+                                $rootScope.$broadcast('loginrealizado', 'asdasdasdasdasd');
+                                $state.go('admin');
+                                return;
+                            }
+                            else {
+                                //console.log($stateParams.vagaId);
+                                if ($stateParams.vagaId > 0) {
+                                    return $state.go('vagaDetalhe', { vagaId: $stateParams.vagaId });
+                                }
+                                return $state.go('vagas');
+                            }
                         }
                     },
                     function (error) {
