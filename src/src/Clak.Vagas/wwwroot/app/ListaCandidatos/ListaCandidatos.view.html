@@ -16,14 +16,12 @@
             <tr>
                 <th>ID</th>
                 <th>CANDIDATOS</th>
-                <th>QUANTIDADE DE CANDIDATOS</th>
                 <th></th>
             </tr>
 
             <tr ng-repeat="vaga in vm.vagas">
                 <td>{{vaga.id}}</td>
                 <td>{{vaga.userName}}</td>
-                <td>{{vaga.quantidade}}</td>
                 <td><md-button class="md-raised" style="margin-left:150px" ng-click="vm.VerCandidato()">VER CANDIDATOS</md-button></td>
             </tr>
         </table>
