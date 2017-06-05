@@ -49,7 +49,7 @@ namespace Clak.Vagas.Controllers
         {
             using (var conexao = new SqlConnection(_stringConnection))
             {
-                var sql = @"	select id from curriculos where id_usuarios = @id";
+                var sql = @"select id from curriculos where id_usuarios = @id";
                 var resultado = conexao.Query(sql, new { id = inscricao.id_curriculos }).FirstOrDefault();
 
                 if (resultado == null)
@@ -81,14 +81,14 @@ namespace Clak.Vagas.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        [Route("admin/candidatos")]
-        public IActionResult GetAdminCandidatos()
+        [HttpGet()]
+        [Route("admin/candidatos/{id}")]
+        public IActionResult GetAdminCandidatos(int id)
         {
             using (var conexao = new SqlConnection(_stringConnection))
             {
-                var sql = "SELECT nome FROM Vagas WHERE id = @idParams";
-                var resultado = conexao.Query(sql)
+                var sql = @"SELECT c.nome FROM curriculos AS c join curriculos_vagas AS cv ON (cv.id_curriculos = c.id) WHERE cv.id_vagas = @id";
+                var resultado = conexao.Query(sql, new { id = id})
                     .Select(vaga => new VagasCandidatos(vaga.nome));
 
                 return Ok(resultado);
@@ -156,7 +156,7 @@ public class VagasCandidatos
 {
     public VagasCandidatos(string nome)
     {
-      // Nome: nome;
+      Nome = nome;
     }
 
     public string Nome { get; set; }
