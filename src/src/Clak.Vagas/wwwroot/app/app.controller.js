@@ -30,7 +30,6 @@
         vm.loginCurriculo = false;
         vm.exibeDadosUsuario = exibeDadosUsuario;
         vm.ativar = ativar;
-        vm.VerCandidato = abrirCandidato;
         vm.nomeUsuario = "Usuario";
 
 
@@ -63,10 +62,6 @@
         function abreCadastro() {
             vm.exibeLogin = false;
             vm.exibeCadastro = true;
-        }
-
-        function abrirCandidato() {
-            $state.go('listaCandidatos');
         }
 
         function abrirCurriculo() {
