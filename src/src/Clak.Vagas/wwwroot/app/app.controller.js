@@ -30,6 +30,7 @@
         vm.loginCurriculo = false;
         vm.exibeDadosUsuario = exibeDadosUsuario;
         vm.ativar = ativar;
+        vm.VerCandidato = abrirCandidato;
         vm.nomeUsuario = "Usuario";
 
 
@@ -39,7 +40,7 @@
                 //console.log(data);
             });
         }
-
+      
         function exibeDadosUsuario() {
             vm.exibeLogin = true;
             var id = localStorageService.get('login');
@@ -62,6 +63,10 @@
         function abreCadastro() {
             vm.exibeLogin = false;
             vm.exibeCadastro = true;
+        }
+
+        function abrirCandidato() {
+            $state.go('listaCandidatos');
         }
 
         function abrirCurriculo() {

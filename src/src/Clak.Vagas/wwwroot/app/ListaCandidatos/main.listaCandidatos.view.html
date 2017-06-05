@@ -1,0 +1,29 @@
+﻿<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 15px 8px 5px 18px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+</style>
+<div layout-padding style="padding-top:20px">
+    <md-card class="md-whiteframe-z3" style="height: 100%; width: 900px; margin: auto;">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>CANDIDATOS</th>
+                <th></th>
+            </tr>
+
+            <tr ng-repeat="vaga in vm.vagas">
+                <td>{{vaga.id}}</td>
+                <td>{{vaga.userName}}</td>
+                <td><md-button class="md-raised" style="margin-left:150px" ng-click="vm.VerCandidato()">VER CANDIDATOS</md-button></td>
+            </tr>
+        </table>
+    </md-card>
+</div>
