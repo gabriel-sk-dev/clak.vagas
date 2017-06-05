@@ -47,7 +47,7 @@ namespace Clak.Vagas.Controllers
         [Route("inscricao")]
         public void Post([FromBody]Vagacadastrarse inscricao)
         {
-            using (var conexao = new SqlConnection(@"Data Source=PC-18\SQLEXPRESS;User Id=sa;Password=sa;Initial Catalog=clakVagas"))
+            using (var conexao = new SqlConnection(_stringConnection))
             {
                 var sql = @"INSERT INTO curriculos_vagas (id_curriculos, id_vagas) 
                             VALUES (@id_curriculos, @id_vagas)";
