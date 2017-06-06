@@ -101,10 +101,10 @@ namespace Clak.Vagas.Controllers
         {
             using (var conexao = new SqlConnection(_stringConnection))
             {
-                var sql = @"SELECT nome, dataNascimento, endereco, genero, telefone, email, cpf, formacao, experiencia  WHERE cv.id_vagas = @id";
+                var sql = @"SELECT id, nome, dataNascimento, endereco, genero, telefone, email, cpf, formacao, experiencia FROM curriculos WHERE id = @id";
                 var resultado = conexao.Query(sql, new { id = id })
-                    .Select(vaga => new VagasCandidatoCurriculo(vaga.nome, vaga.dataNascimento, vaga.endereco, vaga.genero, vaga.telefone, vaga.email, vaga.cpf, vaga.formacao, vaga.experiencia));
-
+                    .Select(vaga => new VagasCandidatoCurriculo(vaga.id, vaga.nome, vaga.dataNascimento, vaga.endereco, vaga.genero, vaga.telefone, vaga.email, vaga.cpf, vaga.formacao, vaga.experiencia));
+                 
                 return Ok(resultado);
             }
         }
@@ -180,8 +180,9 @@ public string Nome { get; set; }
 
 public class VagasCandidatoCurriculo
 {
-    public VagasCandidatoCurriculo(string nome, DateTime dataNascimento, string endereco, string genero, string telefone, string email, string cpf, string formacao, string experiencia)
+    public VagasCandidatoCurriculo(int id, string nome, DateTime dataNascimento, string endereco, string genero, string telefone, string email, string cpf, string formacao, string experiencia)
     {
+        Id = id;
         Nome = nome;
         DataNascimento = dataNascimento;
         Endereco = endereco;
@@ -194,6 +195,7 @@ public class VagasCandidatoCurriculo
 
     }
 
+    public int Id { get; set; }
     public string Nome { get; set; }
     public DateTime DataNascimento { get; set; }
     public string Endereco { get; set; }
