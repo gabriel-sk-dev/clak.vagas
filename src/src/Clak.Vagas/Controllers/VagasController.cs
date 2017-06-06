@@ -45,17 +45,25 @@ namespace Clak.Vagas.Controllers
         }
         [HttpPost]
         [Route("inscricao")]
-        public void Post([FromBody]Vagacadastrarse inscricao)
+        public IActionResult Post([FromBody]Vagacadastrarse inscricao)
         {
             using (var conexao = new SqlConnection(_stringConnection))
             {
-                var sql = @"INSERT INTO curriculos_vagas (id_curriculos, id_vagas) 
+                var sql = @"	select id from curriculos where id_usuarios = @id";
+                var resultado = conexao.Query(sql, new { id = inscricao.id_curriculos }).FirstOrDefault();
+
+                if (resultado == null)
+                    return BadRequest("Id do usuario inválido"); 
+
+
+                 sql = @"INSERT INTO curriculos_vagas (id_curriculos, id_vagas) 
                             VALUES (@id_curriculos, @id_vagas)";
                 conexao.Execute(sql, new
                 {
-                    id_curriculos = inscricao.id_curriculos,
+                    id_curriculos = resultado.id,
                     id_vagas = inscricao.id_vagas
                 });
+                return Ok();
             }
         }
 
@@ -68,6 +76,20 @@ namespace Clak.Vagas.Controllers
                 var sql = "SELECT vagas.id, vagas.titulo, count(curriculos_vagas.id_vagas) as quantidade FROM vagas left join curriculos_vagas on (vagas.id = curriculos_vagas.id_vagas) group by vagas.id, vagas.titulo";
                 var resultado = conexao.Query(sql)
                     .Select(vaga => new VagasTabelaView(vaga.id, vaga.titulo, vaga.quantidade));
+
+                return Ok(resultado);
+            }
+        }
+
+        [HttpGet("{id}")]
+        [Route("admin/candidatos")]
+        public IActionResult GetAdminCandidatos()
+        {
+            using (var conexao = new SqlConnection(_stringConnection))
+            {
+                var sql = "SELECT nome FROM Vagas WHERE id = @idParams";
+                var resultado = conexao.Query(sql)
+                    .Select(vaga => new VagasCandidatos(vaga.nome));
 
                 return Ok(resultado);
             }
@@ -128,5 +150,15 @@ public class VagasTabelaView
     public int Id { get; set; }
     public string Titulo { get; set; }
     public int Quantidade { get; set; }
+}
+
+public class VagasCandidatos
+{
+    public VagasCandidatos(string nome)
+    {
+      // Nome: nome;
+    }
+
+    public string Nome { get; set; }
 }
 
