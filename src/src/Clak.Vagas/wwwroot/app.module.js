@@ -47,7 +47,7 @@
                 controller: "mainHomeController",
                 controllerAs: "vm"
              }   
-      );
+        );
         $stateProvider.state('admin',
             {
                 url: '/admin',
@@ -55,7 +55,7 @@
                 controller: "mainAdminController",
                 controllerAs: "vm"
             }
-      );
+        );
         $stateProvider.state('listaCandidatos',
           {
               url: '/listaCandidatos',
@@ -63,7 +63,15 @@
               controller: "mainlistaCandidatosController",
               controllerAs: "vm"
           }
-    );
+         );
+        $stateProvider.state('curriculoCandidato',
+          {
+              url: '/curriculoCandidato',
+              templateUrl: "app/curriculo_candidatos/main.curriculoCandidato.view.html",
+              controller: "maincurriculoCandidatoController",
+              controllerAs: "vm"
+          }
+        );
         $stateProvider.state('curriculo',
        {
            url: '/curriculo',
