@@ -103,8 +103,8 @@ namespace Clak.Vagas.Controllers
             {
                 var sql = @"SELECT id, nome, dataNascimento, endereco, genero, telefone, email, cpf, formacao, experiencia FROM curriculos WHERE id = @id";
                 var resultado = conexao.Query(sql, new { id = id })
-                    .Select(vaga => new VagasCandidatoCurriculo(vaga.id, vaga.nome, vaga.dataNascimento, vaga.endereco, vaga.genero, vaga.telefone, vaga.email, vaga.cpf, vaga.formacao, vaga.experiencia));
-                 
+                    .Select(vaga => new VagasCandidatoCurriculo(vaga.id, vaga.nome, vaga.dataNascimento, vaga.endereco, vaga.genero, vaga.telefone, vaga.email, vaga.cpf, vaga.formacao, vaga.experiencia))
+                    .FirstOrDefault();
                 return Ok(resultado);
             }
         }
