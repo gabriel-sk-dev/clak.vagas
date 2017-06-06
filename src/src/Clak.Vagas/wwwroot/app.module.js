@@ -1,4 +1,5 @@
-﻿(function () {
+﻿/// <reference path="app/curriculo_candidato/main.curriculocandidato.view.html" />
+(function () {
 
     angular
         .module('mainModule', [
@@ -67,7 +68,7 @@
         $stateProvider.state('curriculoCandidato',
           {
               url: '/curriculoCandidato',
-              templateUrl: "app/curriculo_candidatos/main.curriculoCandidato.view.html",
+              templateUrl: "app/curriculoCandidato/main.curriculoCandidato.view.html",
               controller: "maincurriculoCandidatoController",
               controllerAs: "vm"
           }

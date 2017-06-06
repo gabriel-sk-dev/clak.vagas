@@ -1,7 +1,7 @@
 ﻿(function () {
     angular
         .module('mainModule')
-        .controller('maincurriculoCandidatosController', maincurriculoCandidatoController);
+        .controller('maincurriculoCandidatoController', maincurriculoCandidatoController);
 
     function maincurriculoCandidatoController() {
 

@@ -13,14 +13,9 @@
 <div layout-padding style="padding-top:20px">
     <md-card class="md-whiteframe-z3" style="height: 100%; width: 900px; margin: auto;">
         <table>
-            <tr>
-                <th>ID</th>
-                <th>CANDIDATOS</th>
-                <th></th>
-            </tr>
 
             <tr ng-repeat="vaga in vm.vagas">
-                <td>{{vaga.id}}--</td>
+                <td>{{vaga.id}}</td>
                 <td>{{vaga.username}}</td>
                 <td><md-button class="md-raised" style="margin-left:150px" ng-click="vm.VerCandidato()">VER CANDIDATO</md-button></td>
             </tr>
