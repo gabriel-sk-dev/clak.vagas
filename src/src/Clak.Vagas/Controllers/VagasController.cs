@@ -87,9 +87,23 @@ namespace Clak.Vagas.Controllers
         {
             using (var conexao = new SqlConnection(_stringConnection))
             {
-                var sql = @"SELECT c.nome FROM curriculos AS c join curriculos_vagas AS cv ON (cv.id_curriculos = c.id) WHERE cv.id_vagas = @id";
+                var sql = @"SELECT c.nome, c.id FROM curriculos AS c join curriculos_vagas AS cv ON (cv.id_curriculos = c.id) WHERE cv.id_vagas = @id";
                 var resultado = conexao.Query(sql, new { id = id})
-                    .Select(vaga => new VagasCandidatos(vaga.nome));
+                    .Select(vaga => new VagasCandidatos(vaga.id, vaga.nome));
+
+                return Ok(resultado);
+            }
+        }
+
+        [HttpGet()]
+        [Route("admin/candidatos/curriculo/{id}")]
+        public IActionResult GetCandidatoCurriculo(int id)
+        {
+            using (var conexao = new SqlConnection(_stringConnection))
+            {
+                var sql = @"SELECT nome, dataNascimento, endereco, genero, telefone, email, cpf, formacao, experiencia  WHERE cv.id_vagas = @id";
+                var resultado = conexao.Query(sql, new { id = id })
+                    .Select(vaga => new VagasCandidatoCurriculo(vaga.nome, vaga.dataNascimento, vaga.endereco, vaga.genero, vaga.telefone, vaga.email, vaga.cpf, vaga.formacao, vaga.experiencia));
 
                 return Ok(resultado);
             }
@@ -154,11 +168,39 @@ public class VagasTabelaView
 
 public class VagasCandidatos
 {
-    public VagasCandidatos(string nome)
+    public VagasCandidatos(int id, string nome)
     {
+      Id = Id;
       Nome = nome;
     }
 
-    public string Nome { get; set; }
+public int Id { get; set; }
+public string Nome { get; set; }
 }
 
+public class VagasCandidatoCurriculo
+{
+    public VagasCandidatoCurriculo(string nome, DateTime dataNascimento, string endereco, string genero, string telefone, string email, string cpf, string formacao, string experiencia)
+    {
+        Nome = nome;
+        DataNascimento = dataNascimento;
+        Endereco = endereco;
+        Genero = genero;
+        Telefone = telefone;
+        Email = email;
+        Cpf = cpf;
+        Formacao = formacao;
+        Experiencia = experiencia;  
+
+    }
+
+    public string Nome { get; set; }
+    public DateTime DataNascimento { get; set; }
+    public string Endereco { get; set; }
+    public string Genero { get; set; }
+    public string Telefone { get; set; }
+    public string Email { get; set; }
+    public string Cpf { get; set; }
+    public string Formacao { get; set; }
+    public string Experiencia { get; set; }
+}
