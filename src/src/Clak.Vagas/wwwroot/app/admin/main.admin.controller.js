@@ -20,7 +20,7 @@
             var tipo = localStorageService.get('tipo');
             var id = localStorageService.get('login');
             if (id === null) {
-                $state.go('vagas', { vagaId: $stateParams.vagaId });
+                $state.go('vagas');
                 return;
             }
             if (tipo !== undefined && tipo !== "adm") {
@@ -40,8 +40,9 @@
                     }
                 )
         }
-        function VerCandidato() {
-            $state.go('listaCandidatos')
+        function VerCandidato(vagaId) {
+            console.log(vagaId);
+            $state.go('listaCandidatos', {id: vagaId});
         }
     }
 

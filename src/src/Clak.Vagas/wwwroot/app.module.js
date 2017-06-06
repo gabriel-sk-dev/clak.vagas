@@ -59,7 +59,7 @@
         );
         $stateProvider.state('listaCandidatos',
           {
-              url: '/listaCandidatos',
+              url: '/listaCandidatos/{id}',
               templateUrl: "app/lista_candidatos/main.listaCandidatos.view.html",
               controller: "mainlistaCandidatosController",
               controllerAs: "vm"
