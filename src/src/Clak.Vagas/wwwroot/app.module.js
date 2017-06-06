@@ -67,8 +67,8 @@
          );
         $stateProvider.state('curriculoCandidato',
           {
-              url: '/curriculoCandidato',
-              templateUrl: "app/curriculoCandidato/main.curriculoCandidato.view.html",
+              url: '/curriculoCandidato/{id}',
+              templateUrl: "app/curriculo_candidato/main.curriculoCandidato.view.html",
               controller: "maincurriculoCandidatoController",
               controllerAs: "vm"
           }
