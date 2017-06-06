@@ -12,22 +12,51 @@
 </style>
 <div layout-padding style="padding-top:20px">
     <md-card class="md-whiteframe-z3" style="height: 100%; width: 900px; margin: auto;">
-        <table>
+        <div class="md-list-item-text">
+            <p> Nome: {{vaga.id}}</p>
+        </div>
+        <md-divider md-inset></md-divider>
 
+        <div class="md-list-item-text">
+            <p> Data Nascimento: {{vaga.username}}</p>
+        </div>
+        <md-divider md-inset></md-divider>
 
-            <tr ng-repeat="vaga in vm.vagas">
-                <td>Nome: {{vaga.id}}</td>
-                <td>Data Nascimento: {{vaga.username}}</td>
-                <td>Endereço: </td>
-                <td>Gênero: </td>
-                <td>Telefone: </td>
-                <td>Email: </td>
-                <td>CPF: </td>
-                <td>Formacao: </td>
-                <td>Experiencia: </td>
-                <td><md-button class="md-raised" style="margin-left:150px" ng-click="vm.VerCandidato()">IMPRIMIR CURRICULO</md-button></td>
-            </tr>
-        </table>
+        <div class="md-list-item-text">
+            <p> Endereço:</p>
+        </div>
+        <md-divider md-inset></md-divider>
+
+        <div class="md-list-item-text">
+            <p> Gênero:</p>
+        </div>
+        <md-divider md-inset></md-divider>
+
+        <div class="md-list-item-text">
+            <p>  Telefone:</p>
+        </div>
+        <md-divider md-inset></md-divider>
+
+        <div class="md-list-item-text">
+            <p>Email:</p>
+        </div>
+        <md-divider md-inset></md-divider>
+
+        <div class="md-list-item-text">
+            <p>CPF:</p>
+        </div>
+        <md-divider md-inset></md-divider>
+
+        <div class="md-list-item-text">
+            <p> Formacao:</p>
+        </div>
+        <md-divider md-inset></md-divider>
+
+        <div class="md-list-item-text">
+            <p> Experiencia:</p>
+        </div>
+        <md-divider md-inset></md-divider>
+
+        <md-button class="md-raised" style="margin-left:150px" ng-click="vm.VerCandidato()">IMPRIMIR CURRICULO</md-button></td>
     </md-card>
 </div>
- 
