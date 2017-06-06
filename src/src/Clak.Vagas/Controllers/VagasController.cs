@@ -87,7 +87,7 @@ namespace Clak.Vagas.Controllers
         {
             using (var conexao = new SqlConnection(_stringConnection))
             {
-                var sql = @"SELECT c.nome, c.id FROM curriculos AS c join curriculos_vagas AS cv ON (cv.id_curriculos = c.id) WHERE cv.id_vagas = @id";
+                var sql = @"SELECT c.id, c.nome FROM curriculos AS c join curriculos_vagas AS cv ON (cv.id_curriculos = c.id) WHERE cv.id_vagas = @id";
                 var resultado = conexao.Query(sql, new { id = id})
                     .Select(vaga => new VagasCandidatos(vaga.id, vaga.nome));
 
@@ -170,7 +170,7 @@ public class VagasCandidatos
 {
     public VagasCandidatos(int id, string nome)
     {
-      Id = Id;
+      Id = id;
       Nome = nome;
     }
 
