@@ -20,7 +20,7 @@
             }
 
             $http
-                .get("http://localhost:5000/api/vagas/admin/listacandidatos/" + $stateParams.id)
+                .get("http://localhost:5000/api/vagas/admin/candidatos/" + $stateParams.id)
                 .then(
                     function (result) {
                         console.log('resultado ', result);
