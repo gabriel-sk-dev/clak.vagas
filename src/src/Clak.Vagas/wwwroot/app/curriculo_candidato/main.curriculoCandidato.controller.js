@@ -23,7 +23,7 @@
                 .then(
                     function (result) {
                         console.log('resultado ', result);
-                        vm.vagas = result.data;
+                        vm.curriculo = result.data;
 
                     },
                     function (error) {
