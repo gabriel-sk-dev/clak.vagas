@@ -28,7 +28,6 @@
         vm.exibeLogin = true;
         vm.logout = logout;
         vm.loginCurriculo = false;
-        vm.exibeDadosUsuario = exibeDadosUsuario;
         vm.ativar = ativar;
         vm.nomeUsuario = "Usuario";
 
@@ -40,12 +39,12 @@
             });
         }
       
-        function exibeDadosUsuario() {
+        function estouLogado() {
             vm.exibeLogin = true;
             var id = localStorageService.get('login');
-            if (id != null) {
+            if (id == null)
                 vm.exibeLogin = false;
-            }
+            console.log('MERDA', vm.exibeLogin);
             return vm.exibeLogin;
         }
 
@@ -74,10 +73,6 @@
 
         function abrirHome() {
             $state.go('home');
-        }
-
-        function estouLogado() {
-            return localStorageService.get('login');
         }
 
         function login() {
@@ -118,7 +113,6 @@
         function logout() {
             localStorageService.set('login', null);
             localStorageService.set('tipo', null);
-
             $state.go('home');
         }
 
