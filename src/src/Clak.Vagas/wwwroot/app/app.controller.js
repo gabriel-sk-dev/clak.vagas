@@ -4,7 +4,7 @@
     .module('mainModule')
     .controller('appController', appController);
 
-    function appController($mdSidenav, $http, $state, localStorageService, $rootScope,$stateParams) {
+    function appController($mdSidenav, $http, $state, localStorageService, $rootScope, $stateParams, BASE_URL_API) {
         var vm = this;
 
         vm.curriculo = {
@@ -83,7 +83,7 @@
         function login() {
             vm.exibeErro = false;
             $http
-                .get("http://localhost:5000/api/Login/" + vm.user.login)
+                .get(BASE_URL_API+"/Login/" + vm.user.login)
                 .then(
                     function (result) {                        
                         var userBd = result.data;

@@ -3,7 +3,7 @@
         .module('mainModule')
         .controller('mainLoginController', mainLoginController);
 
-    function mainLoginController($http, $state, localStorageService, $rootScope, $stateParams) {
+    function mainLoginController($http, $state, localStorageService, $rootScope, $stateParams, BASE_URL_API) {
         var vm = this;
         vm.user = {};
         vm.validateAccount = validateAccount;
@@ -14,7 +14,7 @@
         function validateAccount() {
             vm.error = "";
             $http
-                .get("http://localhost:5000/api/login/" + vm.user.userName)
+                .get(BASE_URL_API+"/login/" + vm.user.userName)
                 .then(
 
                     function (result) {

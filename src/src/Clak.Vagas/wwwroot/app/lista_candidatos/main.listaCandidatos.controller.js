@@ -3,7 +3,7 @@
         .module('mainModule')
         .controller('mainlistaCandidatosController', mainlistaCandidatosController);
 
-    function mainlistaCandidatosController(localStorageService, $http, $state, $stateParams) {
+    function mainlistaCandidatosController(localStorageService, $http, $state, $stateParams, BASE_URL_API) {
         
         var vm = this;
         vm.VerCandidato = verCandidato;
@@ -21,7 +21,7 @@
             }
 
             $http
-                .get("http://localhost:5000/api/vagas/admin/candidatos/" + $stateParams.id)
+                .get(BASE_URL_API+"/vagas/admin/candidatos/" + $stateParams.id)
                 .then(
                     function (result) {
                         vm.vagas = result.data;
