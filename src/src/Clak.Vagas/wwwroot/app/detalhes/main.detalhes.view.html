@@ -1,20 +1,20 @@
 ﻿<div layout-padding>
     <md-toolbar class="md-theme-light md-whiteframe-5dp">
         <h2 class="md-toolbar-tools">
-            <span>{{vm.vaga.titulo}}Detalhes</span>
+            <span ng-bind-html="vm.vaga.titulo">Detalhes</span>
         </h2>
     </md-toolbar>
     <md-card layout-padding class="md-whiteframe-3dp" style="min-height: 100px; margin-top: 10px">
         <md-content>
             <h3 style="padding: 0;">Detalhes</h3>
-            <p>{{vm.vaga.detalhes}}</p>
+            <p ng-bind-html="vm.vaga.detalhes"></p>
         </md-content>
     </md-card>
 
     <md-card layout-padding class="md-whiteframe-3dp" style="min-height: 100px; margin-top: 10px">
         <md-content>
             <h3 style="padding: 0;">Requisitos</h3>
-            <p>{{vm.vaga.detalhes}}</p>
+            <p ng-bind-html="vm.vaga.detalhes">vm.vaga.detalhes</p>
         </md-content>
     </md-card>
 

@@ -3,7 +3,7 @@
     .module('mainModule')
     .controller('mainDetalhesController', mainDetalhesController);
 
-    function mainDetalhesController($state, $http, $stateParams, localStorageService, $mdSidenav) {
+    function mainDetalhesController($state, $http, $stateParams, localStorageService, $mdSidenav, BASE_URL_API) {
         var vm = this;
         vm.abrirCurriculo = abrirCurriculo;
         vm.vaga = {};
@@ -14,7 +14,7 @@
         ativar();
         function ativar() {
             $http
-                .get("http://localhost:5000/api/Vagas/" + $stateParams.id)
+                .get(BASE_URL_API+"Vagas/" + $stateParams.id)
                 .then(
                     function (result) {
                         vm.vaga = result.data;
@@ -31,7 +31,7 @@
                 vm.registro.id_curriculos = loginId;
                 vm.registro.id_vagas = $stateParams.id;
                 $http
-                    .post("http://localhost:5000/api/Vagas/inscricao", vm.registro)
+                    .post(BASE_URL_API+"Vagas/inscricao", vm.registro)
                     .then(
                         function (result) {
                             alert("Currículo enviado!");

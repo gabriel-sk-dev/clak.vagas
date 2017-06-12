@@ -19,7 +19,7 @@
                 </md-button>
                 {{vm.title}}
                 <span flex></span>
-                <p ng-hide="vm.exibeDadosUsuario()">Seja bem-vindo, {{vm.nomeUsuario}}</p>
+                <p ng-show="vm.estouLogado()">Seja bem-vindo, {{vm.nomeUsuario}}</p>
                 <md-button class="md-icon-button" ng-click="vm.openLogin()" aria-label="Login" layout="row" layout-align="end center">
                     <md-icon>person</md-icon>
                 </md-button>
@@ -47,9 +47,7 @@
             <md-content role="navigation">
                 <md-list>
 
-                    <div ng-show="vm.estouLogado() === null">
-
-
+                    <div ng-show="!vm.estouLogado()">
                         <md-list-item>
                             <md-icon>account_circle</md-icon>
                             <md-input-container>
@@ -84,7 +82,7 @@
                         </md-list-item>
                     </div>
 
-                    <md-list-item ng-show="vm.estouLogado() !== null">
+                    <md-list-item ng-show="vm.estouLogado()">
                         <md-icon>person_add</md-icon>
                         <p class="md-body-2 fontMenu">USUARIO</p>
                         <span flex></span>
@@ -92,7 +90,7 @@
                             <md-button class="md-raised" ng-click="vm.logout()">LOGOUT</md-button>
                         </div>
                     </md-list-item>
-                    <md-list-item ng-show="vm.estouLogado() !== null">
+                    <md-list-item ng-show="vm.estouLogado()">
                         <md-icon>folder</md-icon>
                         <p class="md-body-2 fontMenu">CURRICULO</p>
                         <span flex></span>
@@ -110,6 +108,7 @@
 
 
     <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="lib/angular-animate/angular-animate.min.js"></script>
     <script src="lib/angular-aria/angular-aria.min.js"></script>
     <script src="lib/angular-messages/angular-messages.min.js"></script>
@@ -128,6 +127,7 @@
     <script src="app/curriculo/main.curriculo.controller.js"></script>
     <script src="app/lista_candidatos/main.listaCandidatos.controller.js"></script>
     <script src="app/curriculo_candidato/main.curriculoCandidato.controller.js"></script>
+    <script src="app/clak.constants.js"></script>
 
 </body>
 </html>

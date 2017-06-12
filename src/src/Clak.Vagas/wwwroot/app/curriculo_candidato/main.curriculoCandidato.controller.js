@@ -3,7 +3,7 @@
         .module('mainModule')
         .controller('maincurriculoCandidatoController', maincurriculoCandidatoController);
 
-    function maincurriculoCandidatoController(localStorageService, $http, $state, $stateParams) {
+    function maincurriculoCandidatoController(localStorageService, $http, $state, $stateParams, BASE_URL_API) {
         var vm = this;
         active();
 
@@ -19,7 +19,7 @@
             }
 
             $http
-                .get("http://localhost:5000/api/vagas/admin/candidatos/curriculo/" + $stateParams.id)
+                .get(BASE_URL_API+"vagas/admin/candidatos/curriculo/" + $stateParams.id)
                 .then(
                     function (result) {
                         console.log('resultado ', result);

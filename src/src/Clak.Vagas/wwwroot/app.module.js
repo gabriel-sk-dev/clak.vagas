@@ -5,7 +5,8 @@
         .module('mainModule', [
         'ui.router',
         'ngMaterial',
-        'LocalStorageModule'
+        'LocalStorageModule',
+        'ngSanitize'
 
     ]);
 

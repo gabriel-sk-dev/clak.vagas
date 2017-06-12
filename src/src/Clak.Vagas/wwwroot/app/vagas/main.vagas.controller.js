@@ -3,7 +3,7 @@
     .module('mainModule')
     .controller('mainVagasController', mainVagasController);
 
-    function mainVagasController($state, $http){
+    function mainVagasController($state, $http, BASE_URL_API) {
         var vm = this;
         vm.vagas = [];
         vm.abrirVaga = abrirVaga;
@@ -12,7 +12,7 @@
 
         function ativar() {
             $http
-                .get("http://localhost:5000/api/Vagas")
+                .get(BASE_URL_API+"Vagas")
                 .then(
                     function (result) {
                         vm.vagas = result.data;

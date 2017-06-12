@@ -4,13 +4,12 @@
             <span>Vagas</span>
         </h2>
     </md-toolbar>
-
     <md-content class="md-whiteframe-3dp">
         <md-list>
             <md-list-item class="md-3-line" ng-repeat="vagas in vm.vagas">
                 <div class="md-list-item-text">
                     <h2>{{vagas.titulo}}</h2>
-                    <p style="padding: 5px 30px 10px 4px">{{vagas.detalhes}}</p>
+                    <p style="padding: 5px 30px 10px 4px" ng-bind-html="vagas.detalhes"></p>
                 </div>
                 <md-button class="md-secondary" ng-click="vm.abrirVaga(vagas.id)">
                     Detalhes

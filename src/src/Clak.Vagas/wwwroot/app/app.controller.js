@@ -4,7 +4,7 @@
     .module('mainModule')
     .controller('appController', appController);
 
-    function appController($mdSidenav, $http, $state, localStorageService, $rootScope,$stateParams) {
+    function appController($mdSidenav, $http, $state, localStorageService, $rootScope, $stateParams, BASE_URL_API) {
         var vm = this;
 
         vm.curriculo = {
@@ -28,7 +28,6 @@
         vm.exibeLogin = true;
         vm.logout = logout;
         vm.loginCurriculo = false;
-        vm.exibeDadosUsuario = exibeDadosUsuario;
         vm.ativar = ativar;
         vm.nomeUsuario = "Usuario";
 
@@ -40,12 +39,12 @@
             });
         }
       
-        function exibeDadosUsuario() {
+        function estouLogado() {
             vm.exibeLogin = true;
             var id = localStorageService.get('login');
-            if (id != null) {
+            if (id == null)
                 vm.exibeLogin = false;
-            }
+            console.log('MERDA', vm.exibeLogin);
             return vm.exibeLogin;
         }
 
@@ -76,14 +75,10 @@
             $state.go('home');
         }
 
-        function estouLogado() {
-            return localStorageService.get('login');
-        }
-
         function login() {
             vm.exibeErro = false;
             $http
-                .get("http://localhost:5000/api/Login/" + vm.user.login)
+                .get(BASE_URL_API+"Login/" + vm.user.login)
                 .then(
                     function (result) {                        
                         var userBd = result.data;
@@ -118,7 +113,6 @@
         function logout() {
             localStorageService.set('login', null);
             localStorageService.set('tipo', null);
-
             $state.go('home');
         }
 
