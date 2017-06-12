@@ -28,7 +28,7 @@
             }
 
             $http
-                .get(BASE_URL_API+"/vagas/admin")
+                .get(BASE_URL_API+"vagas/admin")
                 .then(
                     function (result) {
 

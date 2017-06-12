@@ -21,7 +21,7 @@
             }
 
             $http
-                .get(BASE_URL_API+"/vagas/admin/candidatos/" + $stateParams.id)
+                .get(BASE_URL_API+"vagas/admin/candidatos/" + $stateParams.id)
                 .then(
                     function (result) {
                         vm.vagas = result.data;

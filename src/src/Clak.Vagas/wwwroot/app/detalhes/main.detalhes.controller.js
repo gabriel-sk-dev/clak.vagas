@@ -14,7 +14,7 @@
         ativar();
         function ativar() {
             $http
-                .get(BASE_URL_API+"/Vagas/" + $stateParams.id)
+                .get(BASE_URL_API+"Vagas/" + $stateParams.id)
                 .then(
                     function (result) {
                         vm.vaga = result.data;
@@ -31,7 +31,7 @@
                 vm.registro.id_curriculos = loginId;
                 vm.registro.id_vagas = $stateParams.id;
                 $http
-                    .post(BASE_URL_API+"/Vagas/inscricao", vm.registro)
+                    .post(BASE_URL_API+"Vagas/inscricao", vm.registro)
                     .then(
                         function (result) {
                             alert("Currículo enviado!");

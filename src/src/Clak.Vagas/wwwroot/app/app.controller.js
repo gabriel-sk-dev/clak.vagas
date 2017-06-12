@@ -83,7 +83,7 @@
         function login() {
             vm.exibeErro = false;
             $http
-                .get(BASE_URL_API+"/Login/" + vm.user.login)
+                .get(BASE_URL_API+"Login/" + vm.user.login)
                 .then(
                     function (result) {                        
                         var userBd = result.data;

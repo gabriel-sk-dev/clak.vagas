@@ -14,7 +14,7 @@
         function validateAccount() {
             vm.error = "";
             $http
-                .get(BASE_URL_API+"/login/" + vm.user.userName)
+                .get(BASE_URL_API+"login/" + vm.user.userName)
                 .then(
 
                     function (result) {
