@@ -3,7 +3,7 @@
     .module('mainModule')
     .controller('mainCurriculoController', mainCurriculoController);
 
-    function mainCurriculoController($http) {
+    function mainCurriculoController($http, BASE_URL_API) {
         var vm = this;
 
         vm.enviarCurriculo = enviarCurriculo;
@@ -25,7 +25,7 @@
 
         function enviarCurriculo() {
             $http
-               .post("http://localhost:5000/api/curriculos", vm.curriculo)
+               .post(BASE_URL_API+"curriculos", vm.curriculo)
                .then(
                    function (result) {
                        alert("Currículo enviado!");

@@ -3,7 +3,7 @@
        .module('mainModule')
        .controller('mainAdminController', mainAdminController);
 
-    function mainAdminController(localStorageService, $state, $stateParams, $http) {
+    function mainAdminController(localStorageService, $state, $stateParams, $http, BASE_URL_API) {
 
         var vm = this;
         vm.VerCandidato = VerCandidato;
@@ -28,7 +28,7 @@
             }
 
             $http
-                .get("http://localhost:5000/api/vagas/admin")
+                .get(BASE_URL_API+"/vagas/admin")
                 .then(
                     function (result) {
 
