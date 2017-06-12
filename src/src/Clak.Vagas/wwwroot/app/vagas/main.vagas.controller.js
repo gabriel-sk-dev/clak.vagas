@@ -12,7 +12,7 @@
 
         function ativar() {
             $http
-                .get(BASE_URL_API+"/Vagas")
+                .get(BASE_URL_API+"Vagas")
                 .then(
                     function (result) {
                         vm.vagas = result.data;
