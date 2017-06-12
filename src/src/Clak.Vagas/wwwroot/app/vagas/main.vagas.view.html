@@ -9,9 +9,9 @@
             <md-list-item class="md-3-line" ng-repeat="vagas in vm.vagas">
                 <div class="md-list-item-text">
                     <h2>{{vagas.titulo}}</h2>
-                    <p style="padding: 5px 30px 10px 4px" ng-bind-html="vagas.detalhes"></p>
+                    <p style="padding: 5px 30px 10px 4px; color:black;" ng-bind-html="vagas.detalhes"></p>
                 </div>
-                <md-button class="md-secondary" ng-click="vm.abrirVaga(vagas.id)">
+                <md-button class="md-secondary md-raised" ng-click="vm.abrirVaga(vagas.id)">
                     Detalhes
                 </md-button>
                 <md-divider></md-divider>
