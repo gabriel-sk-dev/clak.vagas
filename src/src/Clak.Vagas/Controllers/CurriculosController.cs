@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using Dapper;
 
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Clak.Vagas.Controllers
 {
     [Route("api/[controller]")]
