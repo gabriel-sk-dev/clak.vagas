@@ -23,8 +23,8 @@
                 );
         }
         function abrirCurriculo() {
-            var loginId = localStorageService.get('loginId');
-            //console.log(loginId);
+            var loginId = localStorageService.get('login');
+            console.log(loginId);
             if (loginId === null)
                 $mdSidenav('right').toggle();
             else {

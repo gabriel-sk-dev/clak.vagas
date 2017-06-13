@@ -25,6 +25,7 @@ namespace Clak.Vagas.Controllers
                     .Select(u => new User()
                     {
                         Id = u.id,
+                        UserName = u.userName,
                         Senha = u.senha,
                         Tipo = u.tipo
                     })
@@ -40,6 +41,7 @@ namespace Clak.Vagas.Controllers
         public class User
         {
             public int Id { get; set; }
+            public string UserName { get; set; }
             public string Senha { get; set; }
             public string Tipo { get; set; }
         }
