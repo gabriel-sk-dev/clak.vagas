@@ -1,7 +1,7 @@
 ﻿(function () {
     angular
     .module('mainModule')
-    .controller('maincriarVagaoController', maincriarVagaController);
+    .controller('maincriarVagaController', maincriarVagaController);
 
     (function maincriarVagaController(localStorageService, $state, $stateParams, $http, BASE_URL_API) {
         var vm = this;
