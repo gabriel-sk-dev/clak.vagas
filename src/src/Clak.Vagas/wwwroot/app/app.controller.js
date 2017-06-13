@@ -19,7 +19,6 @@
         vm.estouLogado = estouLogado;
         vm.login = login;
         vm.user = {};
-        vm.exibeErro = false;
         vm.abreCadastro = abreCadastro;
         vm.abrirCurriculo = abrirCurriculo;
         vm.abrirVagas = abrirVagas;
@@ -44,7 +43,6 @@
             var id = localStorageService.get('login');
             if (id == null)
                 vm.exibeLogin = false;
-            console.log('MERDA', vm.exibeLogin);
             return vm.exibeLogin;
         }
 
@@ -76,7 +74,6 @@
         }
 
         function login() {
-            vm.exibeErro = false;
             $http
                 .get(BASE_URL_API+"Login/" + vm.user.login)
                 .then(
@@ -103,8 +100,7 @@
                         }
                     },
                     function (error) {
-                        vm.mensagem = "Nome do usuário ou senha errado!"
-                        vm.exibeErro = true;
+                        alert("Nome do usuário ou senha incorreto");
                     }
                 );
 

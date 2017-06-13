@@ -1,14 +1,14 @@
 ﻿<style>
     table {
-    border-collapse: collapse;
-    width: 100%;
-}
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-th, td {
-    padding: 15px 8px 5px 18px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
+    th, td {
+        padding: 15px 8px 5px 18px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
 </style>
 <div layout-padding style="padding-top:20px">
     <md-card class="md-whiteframe-z3" style="height: 100%; width: 900px; margin: auto;">
@@ -29,3 +29,15 @@ th, td {
         </table>
     </md-card>
 </div>
+
+<md-fab-speed-dial ng-hide="demo.hidden" md-direction="left" md-open="demo.isOpen"
+                   class="md-scale md-fab-bottom-right" ng-class="{ 'md-hover-full': demo.hover }"
+                   ng-mouseenter="demo.isOpen=true" ng-mouseleave="demo.isOpen=false">
+    <md-fab-trigger>
+        <md-button aria-label="menu" class="md-fab md-warn">
+            <md-tooltip md-direction="left" md-visible="tooltipVisible">Menu</md-tooltip>
+            <md-icon>add</md-icon>
+        </md-button>
+    </md-fab-trigger>
+
+</md-fab-speed-dial>
