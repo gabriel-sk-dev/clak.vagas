@@ -87,7 +87,7 @@
       {
           url: '/criarVaga',
           templateUrl: "app/criar_vaga/main.criarVaga.view.html",
-          controller: "maincriarVagaController",
+          controller: "mainCriarVagaController",
           controllerAs: "vm"
       }
        );

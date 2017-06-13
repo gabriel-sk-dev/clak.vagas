@@ -7,6 +7,7 @@
 
         var vm = this;
         vm.VerCandidato = VerCandidato;
+        vm.testebotao = testeBotao;
         vm.vagas = [
             {
                 "id": 1,
@@ -45,7 +46,11 @@
             $state.go('listaCandidatos', { id: vagaId });
 
         }
+        function testeBotao(vagaId) {
+            console.log(vagaId);
+            $state.go('criarVaga', { id: vagaId });
 
+        }
         
     }
 

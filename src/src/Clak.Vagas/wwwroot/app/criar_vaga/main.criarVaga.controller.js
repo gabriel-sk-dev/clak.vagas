@@ -1,29 +1,24 @@
 ﻿(function () {
     angular
     .module('mainModule')
-    .controller('maincriarVagaoController', maincriarVagaController);
+    .controller('mainCriarVagaController', mainCriarVagaController);
 
-    (function maincriarVagaController(localStorageService, $state, $stateParams, $http, BASE_URL_API) {
+    function mainCriarVagaController(localStorageService, $state, $stateParams, $http, BASE_URL_API) {
         var vm = this;
         active();
         vm.enviarVaga = enviarVaga;
 
-        vm.curriculo = {
+        vm.criaVaga = {
 
-            "userName": "",
-            "senha": "",
-            "nome": "",
-            "dataNascimento": "",
-            "endereco": "",
-            "genero": "",
-            "telefone": "",
-            "email": "",
-            "cpf": "",
-            "formacao": "",
-            "experiencia": ""
+            "titulo": "",
+            "detalhes": "",
+            "requisitos": "",
+            "salario": "",
+            "cargaHoraria": "",
+            "tipodeContratacao": ""
         };
 
-        (function active() {
+        function active() {
             var tipo = localStorageService.get('tipo');
             var id = localStorageService.get('login');
             if (id === null) {
@@ -33,24 +28,20 @@
             if (tipo !== undefined && tipo !== "adm") {
                 $state.go('login');
             }
+        }
 
 
-            (function enviarVaga() {
-
-                $http
-              .post(BASE_URL_API + "curriculos", vm.curriculo)
-              .then(
-                  function (result) {
-                      alert("Vaga Criada com Sucesso!");
-                  },
-                  function (error) {
-                      alert("Algo inesperado aconteceu. Tente novamente!");
-                  }
-              );
-
-
-            })();
-           
-        })();
-    })();
+        function enviarVaga() {
+             $http
+                  .post(BASE_URL_API + "curriculos", vm.curriculo)
+                  .then(
+                      function (result) {
+                          alert("Vaga Criada com Sucesso!");
+                      },
+                      function (error) {
+                          alert("Algo inesperado aconteceu. Tente novamente!");
+                      }
+                  );
+        }
+    }
 })();
