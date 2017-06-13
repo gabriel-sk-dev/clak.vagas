@@ -6,7 +6,8 @@
         'ui.router',
         'ngMaterial',
         'LocalStorageModule',
-        'ngSanitize'
+        'ngSanitize',
+        'textAngular'
 
     ]);
 
