@@ -29,7 +29,7 @@
         vm.logout = logout;
         vm.loginCurriculo = false;
         vm.ativar = ativar;
-        vm.nomeUsuario = "Usuario";
+        vm.nomeUsuario = "";
 
 
         ativar();
@@ -44,7 +44,6 @@
             var id = localStorageService.get('login');
             if (id == null)
                 vm.exibeLogin = false;
-            console.log('MERDA', vm.exibeLogin);
             return vm.exibeLogin;
         }
 
@@ -85,11 +84,13 @@
                         if (userBd.senha === vm.user.senha) {
                             localStorageService.set('login', userBd.id);
                             localStorageService.set('tipo', userBd.tipo);
+                            vm.nomeUsuario = userBd.userName;
 
-                            console.log('usuario id', userBd.id);
+                            console.log(result);
 
                             if (userBd.tipo === "adm") {
                                 $rootScope.$broadcast('loginrealizado', 'asdasdasdasdasd');
+                                vm.nomeUsuario = userBd.userName;
                                 $state.go('admin');
                                 return;
                             }
