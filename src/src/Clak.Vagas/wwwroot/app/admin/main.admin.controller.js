@@ -42,8 +42,11 @@
         }
         function VerCandidato(vagaId) {
             console.log(vagaId);
-            $state.go('listaCandidatos', {id: vagaId});
+            $state.go('listaCandidatos', { id: vagaId });
+
         }
+
+        
     }
 
 })();
