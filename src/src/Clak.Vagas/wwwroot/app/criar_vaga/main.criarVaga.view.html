@@ -12,12 +12,12 @@
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm style="padding-right:18px;">
                         <label>Titulo</label>
-                        <input ng-model="vm.curriculo.userName">
+                        <input ng-model="vm.criarVaga.titulo">
                     </md-input-container>
 
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Detalhes</label>
-                        <input ng-model="vm.curriculo.senha">
+                        <input ng-model="vm.criarVaga.detalhes">
                     </md-input-container>
                 </div>
 
@@ -25,19 +25,19 @@
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Requisitos</label>
-                        <input ng-model="vm.curriculo.nome">
+                        <input ng-model="vm.criarVaga.requisitos">
                     </md-input-container>
                 </div>
 
                 <div layout="row" layout-align="space-around center">
                     <md-input-container flex-gt-sm style="padding-right:18px;">
                         <label>Salário</label>
-                        <input ng-model="vm.curriculo.telefone" type="tel">
+                        <input ng-model="vm.criarVaga.salario" type="tel">
                     </md-input-container>
 
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Carga Horária</label>
-                        <input ng-model="vm.curriculo.email" type="email">
+                        <input ng-model="vm.criarVaga.cargaHoraria" type="email">
                     </md-input-container>
                 </div>
 
@@ -45,11 +45,11 @@
 
                     <md-input-container class="md-block" flex-gt-sm style="padding-right:18px;">
                         <label>Tipo de Contratação</label>
-                        <input ng-model="vm.curriculo.endereco">
+                        <input ng-model="vm.criarVaga.tipodeContratacao">
                     </md-input-container>
 
                 <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
-                    <md-button class="md-raised" ng-click="vm.enviarCurriculo()">Criar Vaga</md-button>
+                    <md-button class="md-raised" ng-click="vm.criarVaga()">Criar Vaga</md-button>
                 </div>
         </div>
     </md-content>
