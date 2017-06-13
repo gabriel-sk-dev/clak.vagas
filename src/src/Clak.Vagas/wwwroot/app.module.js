@@ -82,7 +82,15 @@
            controller: "mainCurriculoController",
            controllerAs: "vm"
        }
- );
+        );
+        $stateProvider.state('criarVaga',
+      {
+          url: '/criarVaga',
+          templateUrl: "app/criar_vaga/main.criarVaga.view.html",
+          controller: "maincriarVagaController",
+          controllerAs: "vm"
+      }
+       );
     }
 })();
 
