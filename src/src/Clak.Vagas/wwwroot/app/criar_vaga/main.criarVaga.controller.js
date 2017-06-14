@@ -8,14 +8,14 @@
         active();
         vm.enviarVaga = enviarVaga;
 
-        vm.criaVaga = {
-
+        vm.criarVaga = {
             "titulo": "",
             "detalhes": "",
             "requisitos": "",
             "salario": "",
             "cargaHoraria": "",
-            "tipodeContratacao": ""
+            "tipoContratacao": "",
+            "status": "Aberta"
         };
 
         function active() {
@@ -33,7 +33,7 @@
 
         function enviarVaga() {
              $http
-                  .post(BASE_URL_API + "curriculos", vm.curriculo)
+                  .post(BASE_URL_API + "vagas", vm.criarVaga)
                   .then(
                       function (result) {
                           alert("Vaga Criada com Sucesso!");
@@ -42,6 +42,7 @@
                           alert("Algo inesperado aconteceu. Tente novamente!");
                       }
                   );
+             console.log(vm.criarVaga);
         }
     }
 })();
