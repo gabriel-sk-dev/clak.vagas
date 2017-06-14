@@ -32,25 +32,25 @@
                 <div layout="row" layout-align="space-around center">
                     <md-input-container flex-gt-sm style="padding-right:18px;">
                         <label>Salário</label>
-                        <input ng-model="vm.criarVaga.salario" >
+                        <input ng-model="vm.criarVaga.salario">
                     </md-input-container>
 
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Carga Horária</label>
-                        <input ng-model="vm.criarVaga.cargaHoraria" >
+                        <input ng-model="vm.criarVaga.cargaHoraria">
                     </md-input-container>
                 </div>
-
-                <div layout-gt-sm="row">
-
-                    <md-input-container class="md-block" flex-gt-sm style="padding-right:18px;">
-                        <label>Tipo de Contratação</label>
-                        <input ng-model="vm.criarVaga.tipodeContratacao">
-                    </md-input-container>
         </div>
-                <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
-                    <md-button class="md-raised" ng-click="vm.criarVaga()">Criar Vaga</md-button>
-                </div>
+        <div layout-gt-sm="row">
+
+            <md-input-container class="md-block" flex-gt-sm style="padding-right:18px;">
+                <label>Tipo de Contratação</label>
+                <input ng-model="vm.criarVaga.tipodeContratacao">
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
+            <md-button class="md-raised" ng-click="vm.criarVaga()">Criar Vaga</md-button>
+        </div>
     </md-content>
 </div>
 
