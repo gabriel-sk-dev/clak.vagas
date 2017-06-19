@@ -7,7 +7,7 @@
         var vm = this;
         active();
         vm.enviarVaga = enviarVaga;
-
+        vm.mostraLoad = t
         vm.criarVaga = {
             "titulo": "",
             "detalhes": "",
@@ -36,12 +36,14 @@
                   .post(BASE_URL_API + "vagas", vm.criarVaga)
                   .then(
                       function (result) {
-                          alert("Vaga Criada com Sucesso!");
+                          toastr["success"]("Currículo cadastrado com sucesso", "Sucesso");;
                       },
                       function (error) {
-                          alert("Algo inesperado aconteceu. Tente novamente!");
-                      }
-                  );
+                          toastr["error"]("Não foi possível criar a vaga", "Erro");
+                      })
+                      .finally(function () {
+                          vm.mostraLoad = false;
+                      });
              console.log(vm.criarVaga);
         }
     }

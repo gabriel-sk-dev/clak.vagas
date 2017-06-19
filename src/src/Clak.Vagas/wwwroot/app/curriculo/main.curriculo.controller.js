@@ -5,11 +5,9 @@
 
     function mainCurriculoController($http, BASE_URL_API) {
         var vm = this;
-
         vm.enviarCurriculo = enviarCurriculo;
-
-        vm.curriculo = {
-           
+        vm.mostraLoad = true;
+        vm.curriculo = {           
             "userName": "",
             "senha": "",
             "nome": "",
@@ -28,14 +26,15 @@
                .post(BASE_URL_API+"curriculos", vm.curriculo)
                .then(
                    function (result) {
-                       alert("Currículo enviado!");
+                       toastr["success"]("Currículo cadastrado com sucesso", "Sucesso");
+                       $state.go('vagas');
                    },
                    function (error) {
-                       alert("Algo inesperado aconteceu. Tente novamente!");
-                   }
-               );
-
-            //console.log(vm.curriculo);
-        }
+                       toastr["error"]("Não foi possível incluir o currículo", "Falha");
+                   })
+                   .finally(function () {
+                        vm.mostraLoad = false;
+                    });
+            }
     }
 })();
