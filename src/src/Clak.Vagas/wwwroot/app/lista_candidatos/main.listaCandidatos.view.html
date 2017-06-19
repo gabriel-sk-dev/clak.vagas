@@ -11,7 +11,8 @@
     }
 </style>
 
-<div layout-padding>
+<div layout-padding ng-hide="vm.mostraLoad">
+    <md-progress-linear md-mode="indeterminate" ng-show="vm.mostraLoad"></md-progress-linear>
     <md-toolbar class="md-theme-light md-whiteframe-5dp">
         <h2 class="md-toolbar-tools">
             <span>Lista de candidatos</span>

@@ -101,9 +101,11 @@
                         }
                     },
                     function (error) {
-                        alert("Nome do usuário ou senha incorreto");
-                    }
-                );
+                        toastr["error"]("Nome de usuário ou senha incorreta", "Falha");
+                    })
+                    .finally(function () {
+                         vm.mostraLoad = false;
+                    });
 
         }
 

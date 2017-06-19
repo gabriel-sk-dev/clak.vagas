@@ -41,7 +41,10 @@
 
                         //console.log("deu merda");
                     }
-                );
+                )
+                .finally(function () {
+                      vm.mostraLoad = false;
+                });
             //console.log('depois de chamar o http;');
         }
 

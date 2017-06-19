@@ -13,7 +13,13 @@
 
     angular
     .module('mainModule')
-    .config(configMainModule);
+    .config(configMainModule)
+   // .run(runModule);
+
+   // function runModule(localStorageService) {
+      //  localStorageService.set('login', null);
+      //  localStorageService.set('tipo', null);
+  //  } 
 
     function configMainModule($stateProvider, $urlRouterProvider) {
 

@@ -28,8 +28,10 @@
                     },
                     function (error) {
                         console.log('deu merda');
-                    }
-            )
+                    })
+                    .finally(function () {
+                         vm.mostraLoad = false;
+                    });
         }
     }
 

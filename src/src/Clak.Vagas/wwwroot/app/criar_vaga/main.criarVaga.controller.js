@@ -7,7 +7,7 @@
         var vm = this;
         active();
         vm.enviarVaga = enviarVaga;
-        vm.mostraLoad = t
+        vm.mostraLoad = true;
         vm.criarVaga = {
             "titulo": "",
             "detalhes": "",
