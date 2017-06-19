@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="lib/angular-material/angular-material.css" rel="stylesheet" />
     <link href="lib/angular-material-icons/angular-material-icons.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -11,7 +12,7 @@
     <link href="lib/textAngular/dist/textAngular.css" rel="stylesheet" />
 </head>
 
-<body>
+<body ng-cloak>
 
 
     <div ng-controller="appController as vm">
@@ -64,7 +65,7 @@
                             <md-icon>https</md-icon>
                             <md-input-container>
                                 <label>Senha: </label>
-                                <input ng-model="vm.user.senha">
+                                <input ng-model="vm.user.senha" type="password">
                             </md-input-container>
                             <span flex></span>
                         </md-list-item>

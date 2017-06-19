@@ -112,4 +112,3 @@ namespace Clak.Vagas.Controllers
         public String Experiencia { get; set; }
     }
 }
-
