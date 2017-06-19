@@ -11,7 +11,7 @@
     <link href="lib/textAngular/dist/textAngular.css" rel="stylesheet" />
 </head>
 
-<body>
+<body ng-cloak>
 
 
     <div ng-controller="appController as vm">
@@ -64,7 +64,7 @@
                             <md-icon>https</md-icon>
                             <md-input-container>
                                 <label>Senha: </label>
-                                <input ng-model="vm.user.senha">
+                                <input ng-model="vm.user.senha" type="password">
                             </md-input-container>
                             <span flex></span>
                         </md-list-item>
