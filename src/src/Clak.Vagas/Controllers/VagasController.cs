@@ -48,17 +48,22 @@ namespace Clak.Vagas.Controllers
             using (var conexao = new SqlConnection(_stringConnection))
             {
                 var sql = @"select id from curriculos where id_usuarios = @id";
-                var resultado = conexao.Query(sql, new { id = inscricao.id_curriculos }).FirstOrDefault();
+                var curriculoResult = conexao.Query(sql, new { id = inscricao.id_curriculos }).FirstOrDefault();
 
-                if (resultado == null)
+                if (curriculoResult == null)
                     return BadRequest("Id do usuario inválido");
 
+
+                sql = @"select id_curriculos from curriculos_vagas where id_curriculos = @id_curriculos and id_vagas = @id_vagas";
+                var pesquisaResult = conexao.Query(sql, new { id_curriculos = curriculoResult.id,id_vagas = inscricao.id_vagas });
+                if (pesquisaResult != null && pesquisaResult.Any())
+                    return BadRequest("curriculo já inscrito na vaga ");
 
                 sql = @"INSERT INTO curriculos_vagas (id_curriculos, id_vagas) 
                             VALUES (@id_curriculos, @id_vagas)";
                 conexao.Execute(sql, new
                 {
-                    id_curriculos = resultado.id,
+                    id_curriculos = curriculoResult.id,
                     id_vagas = inscricao.id_vagas
                 });
                 return Ok();
