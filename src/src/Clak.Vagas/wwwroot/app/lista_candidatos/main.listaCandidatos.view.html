@@ -10,8 +10,14 @@
         border-bottom: 1px solid #ddd;
     }
 </style>
-<div layout-padding style="padding-top:20px">
-    <md-card class="md-whiteframe-z3" style="height: 100%; width: 900px; margin: auto;">
+
+<div layout-padding>
+    <md-toolbar class="md-theme-light md-whiteframe-5dp">
+        <h2 class="md-toolbar-tools">
+            <span>Lista de candidatos</span>
+        </h2>
+    </md-toolbar>
+    <md-content class="md-whiteframe-3dp">
         <table>
             <tr>
                 <th>ID</th>
@@ -25,5 +31,5 @@
                 <td><md-button class="md-raised" style="margin-left:150px" ng-click="vm.VerCandidato(vaga.id)">VER CANDIDATO</md-button></td>
             </tr>
         </table>
-    </md-card>
+    </md-content>
 </div>

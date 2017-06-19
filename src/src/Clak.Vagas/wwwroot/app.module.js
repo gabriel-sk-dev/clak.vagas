@@ -6,7 +6,8 @@
         'ui.router',
         'ngMaterial',
         'LocalStorageModule',
-        'ngSanitize'
+        'ngSanitize',
+        'textAngular'
 
     ]);
 
@@ -81,7 +82,15 @@
            controller: "mainCurriculoController",
            controllerAs: "vm"
        }
- );
+        );
+        $stateProvider.state('criarVaga',
+      {
+          url: '/criarVaga',
+          templateUrl: "app/criar_vaga/main.criarVaga.view.html",
+          controller: "mainCriarVagaController",
+          controllerAs: "vm"
+      }
+       );
     }
 })();
 

@@ -3,12 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="lib/angular-material/angular-material.css" rel="stylesheet" />
     <link href="lib/angular-material-icons/angular-material-icons.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="lib/textAngular/dist/textAngular.css" rel="stylesheet" />
 </head>
 
-<body>
+<body ng-cloak>
 
 
     <div ng-controller="appController as vm">
@@ -61,7 +65,7 @@
                             <md-icon>https</md-icon>
                             <md-input-container>
                                 <label>Senha: </label>
-                                <input ng-model="vm.user.senha">
+                                <input ng-model="vm.user.senha" type="password">
                             </md-input-container>
                             <span flex></span>
                         </md-list-item>
@@ -113,8 +117,12 @@
     <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="lib/angular-material/angular-material.min.js"></script>
     <script src="lib/angular-material-icons/angular-material-icons.min.js"></script>
-    <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script> 
 
+    <script src="lib/textAngular/dist/textAngular-rangy.min.js"></script>
+    <script src="lib/textAngular/dist/textAngular-sanitize.min.js"></script>
+    <script src="lib/textAngular/dist/textAngular.min.js"></script>
+    
     <script src="app.module.js"></script>
     <script src="app/vagas/main.vagas.controller.js"></script>
     <script src="app/detalhes/main.detalhes.controller.js"></script>
@@ -126,6 +134,7 @@
     <script src="app/lista_candidatos/main.listaCandidatos.controller.js"></script>
     <script src="app/curriculo_candidato/main.curriculoCandidato.controller.js"></script>
     <script src="app/clak.constants.js"></script>
+    <script src="app/criar_vaga/main.CriarVaga.controller.js"></script>
 
 </body>
 </html>

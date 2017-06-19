@@ -1,0 +1,60 @@
+﻿<div layout-padding>
+    <md-toolbar class="md-theme-light md-whiteframe-5dp">
+        <h2 class="md-toolbar-tools">
+            <span>Currículo</span>
+        </h2>
+    </md-toolbar>
+    <md-content class="md-whiteframe-3dp">
+        <div layout="column" ng-cloak class="md-inline-form">
+
+            <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding>
+
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm style="padding-right:18px;">
+                        <label>Titulo</label>
+                        <input ng-model="vm.criarVaga.titulo">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Detalhes</label>
+                        <input ng-model="vm.criarVaga.detalhes">
+                    </md-input-container>
+                </div>
+
+
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Requisitos</label>
+                        <input ng-model="vm.criarVaga.requisitos">
+                    </md-input-container>
+                </div>
+
+                <div layout="row" layout-align="space-around center">
+                    <md-input-container flex-gt-sm style="padding-right:18px;">
+                        <label>Salário</label>
+                        <input ng-model="vm.criarVaga.salario">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Carga Horária</label>
+                        <input ng-model="vm.criarVaga.cargaHoraria">
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+
+                    <md-input-container class="md-block" flex-gt-sm style="padding-right:18px;">
+                        <label>Tipo de Contratação</label>
+                        <input ng-model="vm.criarVaga.TipoContratacao">
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-align="end start" style="margin: 0 ; padding: 0;">
+                    <md-button class="md-raised" ng-click="vm.enviarVaga()">Criar Vaga</md-button>
+                </div>
+            </md-content>
+        </div>
+
+
+
+
+
