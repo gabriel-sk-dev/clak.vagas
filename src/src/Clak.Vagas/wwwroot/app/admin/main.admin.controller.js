@@ -6,6 +6,7 @@
     function mainAdminController(localStorageService, $state, $stateParams, $http, BASE_URL_API) {
 
         var vm = this;
+        vm.mostraLoad = true;
         vm.VerCandidato = VerCandidato;
         vm.testebotao = testeBotao;
         vm.vagas = [
@@ -32,14 +33,15 @@
                 .get(BASE_URL_API+"vagas/admin")
                 .then(
                     function (result) {
-
                         vm.vagas = result.data;
-
                     },
                     function (error) {
 
                     }
                 )
+                .finally(function () {
+                    vm.mostraLoad = false;
+                })
         }
         function VerCandidato(vagaId) {
             console.log(vagaId);

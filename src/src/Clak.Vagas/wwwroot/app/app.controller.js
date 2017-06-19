@@ -83,9 +83,8 @@
                             localStorageService.set('login', userBd.id);
                             localStorageService.set('tipo', userBd.tipo);
                             vm.nomeUsuario = userBd.userName;
-
-                            console.log(result);
-
+                            vm.user.senha = "";
+                            vm.user.login = "";
                             if (userBd.tipo === "adm") {
                                 $rootScope.$broadcast('loginrealizado', 'asdasdasdasdasd');
                                 vm.nomeUsuario = userBd.userName;
