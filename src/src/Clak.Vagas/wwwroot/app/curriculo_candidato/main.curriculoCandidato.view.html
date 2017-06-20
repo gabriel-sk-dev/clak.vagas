@@ -8,7 +8,8 @@
     }
 </style>
 <div layout-padding style="padding-top:20px">
-    <md-card class="md-whiteframe-z3" style="height: 100%; width: 900px; margin: auto;">
+    <md-progress-linear md-mode="indeterminate" ng-show="vm.mostraLoad"></md-progress-linear>
+    <md-card class="md-whiteframe-z3" style="height: 100%; width: 900px; margin: auto;" ng-hide="vm.mostraLoad">
         <div class="md-list-item-text">
             <p> Nome: {{vm.curriculo.nome}}</p>
         </div>

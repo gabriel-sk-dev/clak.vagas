@@ -28,8 +28,10 @@
 
                     },
                     function (error) {
-                    }
-            )
+                    })
+                    .finally(function () {
+                           vm.mostraLoad = false;
+                     });
         }
         function verCandidato(vagaId) {
             console.log(vagaId);

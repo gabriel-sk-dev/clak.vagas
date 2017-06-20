@@ -34,17 +34,18 @@
                     .post(BASE_URL_API+"Vagas/inscricao", vm.registro)
                     .then(
                         function (result) {
-                            alert("Currículo enviado!");
+                            toastr.succes("Curriculo enviado com sucesso!", "Sucesso");
                             vm.registro = result.data;
                             $state.go('vagas');
                         },
                         function (error) {
                             //console.log(error);
-                            alert("Algo inesperado aconteceu. Tente novamente!");
-                        }
-                    );
+                            toastr.warning("Já inscrito na vaga. Boa sorte!");
+                        })
+                        .finally(function () {
+                            vm.mostraLoad = false;
+                        });
             }
-
         }
     }
 })();

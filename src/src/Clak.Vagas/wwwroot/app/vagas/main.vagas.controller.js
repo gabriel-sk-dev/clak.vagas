@@ -18,7 +18,10 @@
                         vm.vagas = result.data;
                     },
                     function (error) { }
-                );
+                )
+                .finally(function () {
+                    vm.mostraLoad = false;
+                });
 
         }
         function abrirVaga(id) {            
