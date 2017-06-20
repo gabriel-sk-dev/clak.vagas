@@ -6,6 +6,7 @@
     function maincurriculoCandidatoController(localStorageService, $http, $state, $stateParams, BASE_URL_API) {
         var vm = this;
         vm.ImprimirCurriculo = ImprimirCurriculo;
+        vm.vagaId = $stateParams.vagaId;
         active();
 
         function active() {
