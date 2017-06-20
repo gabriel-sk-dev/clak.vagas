@@ -34,7 +34,7 @@
                     .post(BASE_URL_API+"Vagas/inscricao", vm.registro)
                     .then(
                         function (result) {
-                            toastr.succes("Curriculo enviado com sucesso!", "Sucesso");
+                            toastr.success("Curriculo enviado com sucesso!", "Sucesso");
                             vm.registro = result.data;
                             $state.go('vagas');
                         },

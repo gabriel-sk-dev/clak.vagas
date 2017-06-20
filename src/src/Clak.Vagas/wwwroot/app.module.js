@@ -21,7 +21,10 @@
       //  localStorageService.set('tipo', null);
   //  } 
 
-    function configMainModule($stateProvider, $urlRouterProvider) {
+    function configMainModule($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
+        localStorageServiceProvider
+            .setPrefix('clakvagas')
+            .setStorageType('sessionStorage')
 
         $urlRouterProvider.otherwise('/vagas');
 

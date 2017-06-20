@@ -50,7 +50,6 @@
         <md-sidenav class="md-sidenav-right" md-component-id="right" md-is-open="false" ng-cloak style="position:fixed">
             <md-content role="navigation">
                 <md-list>
-
                     <div ng-show="!vm.estouLogado()">
                         <md-list-item>
                             <md-icon>account_circle</md-icon>
@@ -83,7 +82,6 @@
                             <span flex></span>
                         </md-list-item>
                     </div>
-
                     <md-list-item ng-show="vm.estouLogado()">
                         <md-icon>person_add</md-icon>
                         <p class="md-body-2 fontMenu">USUARIO</p>
@@ -100,7 +98,6 @@
                             <md-button class="md-raised" ng-click="vm.abrirCurriculo()">ABRIR</md-button>
                         </div>
                     </md-list-item>
-
                 </md-list>
             </md-content>
         </md-sidenav>

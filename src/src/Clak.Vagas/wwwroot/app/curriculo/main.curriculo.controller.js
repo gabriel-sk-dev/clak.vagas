@@ -6,7 +6,7 @@
     function mainCurriculoController($http, BASE_URL_API, $state) {
         var vm = this;
         vm.enviarCurriculo = enviarCurriculo;
-        vm.mostraLoad = true;
+        
         vm.curriculo = {           
             "userName": "",
             "senha": "",
@@ -21,6 +21,7 @@
             "experiencia": ""
         };
         function enviarCurriculo() {
+            vm.mostraLoad = true;
             $http
                .post(BASE_URL_API+"curriculos", vm.curriculo)
                .then(
@@ -31,6 +32,8 @@
                    },
                    function (error) {
                        toastr["error"]("Não foi possível incluir o currículo", "Falha");
+                   }).finally(function () {
+                       vm.mostraLoad = false;
                    });
             }
     }
