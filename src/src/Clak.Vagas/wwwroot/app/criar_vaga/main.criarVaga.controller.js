@@ -7,7 +7,6 @@
         var vm = this;
         active();
         vm.enviarVaga = enviarVaga;
-        vm.mostraLoad = true;
         vm.criarVaga = {
             "titulo": "",
             "detalhes": "",
@@ -32,6 +31,7 @@
 
 
         function enviarVaga() {
+            vm.mostraLoad = true;
              $http
                   .post(BASE_URL_API + "vagas", vm.criarVaga)
                   .then(
@@ -44,7 +44,7 @@
                       .finally(function () {
                           vm.mostraLoad = false;
                       });
-             console.log(vm.criarVaga);
+             $state.go('admin');
         }
     }
 })();

@@ -3,7 +3,7 @@
     .module('mainModule')
     .controller('mainCurriculoController', mainCurriculoController);
 
-    function mainCurriculoController($http, BASE_URL_API, $state) {
+    function mainCurriculoController($http, BASE_URL_API, $state, localStorageService) {
         var vm = this;
         vm.enviarCurriculo = enviarCurriculo;
         
@@ -27,6 +27,8 @@
                .then(
                    function (result) {
                        toastr["success"]("Currículo cadastrado com sucesso", "Sucesso");
+                       var tipo = localStorageService.get('tipo');
+                       var id = localStorageService.get('login');
                        $state.go('vagas');
                        return;
                    },

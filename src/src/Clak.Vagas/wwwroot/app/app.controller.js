@@ -66,7 +66,10 @@
         }
 
         function abrirVagas() {
-            $state.go('vagas');
+            var tipo = localStorageService.get('tipo');
+            if (estouLogado() && tipo === "adm")
+                return $state.go('admin');
+            return $state.go('vagas');
         }
 
         function abrirHome() {
@@ -85,6 +88,7 @@
                             vm.nomeUsuario = userBd.userName;
                             vm.user.senha = "";
                             vm.user.login = "";
+                            $mdSidenav('right').toggle();
                             if (userBd.tipo === "adm") {
                                 $rootScope.$broadcast('loginrealizado', 'asdasdasdasdasd');
                                 vm.nomeUsuario = userBd.userName;
