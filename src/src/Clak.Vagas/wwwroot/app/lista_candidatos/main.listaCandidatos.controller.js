@@ -7,13 +7,14 @@
         
         var vm = this;
         vm.VerCandidato = verCandidato;
+        vm.idVaga = $stateParams.id;
         ativar();
 
         function ativar() {
             var tipo = localStorageService.get('tipo');
             var id = localStorageService.get('login');
             if (id === null) {
-                $state.go('vagas', { vagaId: $stateParams.vagaId });
+                $state.go('admin');
                 return;
             }
             if (tipo !== undefined && tipo !== "adm") {
@@ -33,9 +34,8 @@
                            vm.mostraLoad = false;
                      });
         }
-        function verCandidato(vagaId) {
-            console.log(vagaId);
-            $state.go('curriculoCandidato', { id: vagaId });
+        function verCandidato(curriculoId) {            
+            $state.go('curriculoCandidato', { id: curriculoId, vagaId: vm.idVaga });
         }
 
     }
