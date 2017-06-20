@@ -5,6 +5,7 @@
 
     function maincurriculoCandidatoController(localStorageService, $http, $state, $stateParams, BASE_URL_API) {
         var vm = this;
+        vm.ImprimirCurriculo = ImprimirCurriculo;
         active();
 
         function active() {
@@ -33,6 +34,9 @@
                          vm.mostraLoad = false;
                     });
         }
+    }
+    function ImprimirCurriculo() {
+        window.print();
     }
 
 })();
