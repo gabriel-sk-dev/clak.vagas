@@ -7,6 +7,9 @@
         margin: 20px 0 10px 0;
     }
 </style>
+
+<div><a ui-sref="admin">Principal</a> >> <a ui-sref="listaCandidatos({id: vm.vagaId})">Candidatos</a> >> Curriculo do candidato</div>
+
 <div layout-padding style="padding-top:20px">
     <md-progress-linear md-mode="indeterminate" ng-show="vm.mostraLoad"></md-progress-linear>
     <md-card class="md-whiteframe-z3" style="height: 100%; width: 900px; margin: auto;" ng-hide="vm.mostraLoad">
